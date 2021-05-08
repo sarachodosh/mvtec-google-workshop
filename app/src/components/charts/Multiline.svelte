@@ -28,6 +28,6 @@
 		fill: none;
 		stroke-linejoin: round;
 		stroke-linecap: round;
-		stroke-width: 1px;
+		stroke-width: 1.5px;
 	}
 </style>
