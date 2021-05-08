@@ -2,14 +2,12 @@
 	import Menu from './components/common/Menu.svelte'
 	import Test from './test/Test.svelte'
 	import Footer from './components/common/Footer.svelte'
-	import Page from './app/Page.svelte'
 
 </script>
 
 <main>
 
-	<!-- <Test /> -->
-	<Page />
+	<Test />
 
 	<Footer>
 		<div slot="about">

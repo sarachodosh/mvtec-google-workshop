@@ -13,7 +13,6 @@
 	import {curveMonotoneX} from 'd3-shape'
 	import { Button, ButtonGroup, ButtonGroupItem } from 'svelte-materialify';
 
-
 	//Test data
 	import world from '../data/world.json';
 	import cases from '../data/covid-cases.json';
@@ -91,13 +90,7 @@
 					r: Math.random() * 16 }
 				]
         }))
-
-	
-
-
 </script>
-
-
 
 	<Multiline 
 		data={weather2}
