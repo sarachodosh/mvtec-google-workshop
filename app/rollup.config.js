@@ -5,6 +5,7 @@ import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
 import json from '@rollup/plugin-json';
+import dsv from '@rollup/plugin-dsv';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -29,13 +30,22 @@ function serve() {
 	};
 }
 
+// export default {
+// 	input: 'src/index.js',
+// 	output: {
+// 	  dir: 'output',
+// 	  format: 'cjs'
+// 	},
+// 	plugins: [dsv()]
+//   };
+
 export default {
 	input: 'src/main.js',
 	output: {
 		sourcemap: true,
-		format: 'iife',
+		format: 'cjs',
 		name: 'app',
-		file: 'public/build/bundle.js'
+		file: 'public/build/bundle.js',
 	},
 	plugins: [
 		svelte({
@@ -59,7 +69,7 @@ export default {
 		}),
 		commonjs(),
 		json(),
-
+		dsv(),
 		// In dev mode, call `npm run start` once
 		// the bundle has been generated
 		!production && serve(),

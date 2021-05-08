@@ -10,6 +10,7 @@
     "@beyonk/svelte-mapbox": "^7.0.0",
     "@material/theme": "^10.0.0",
     "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-dsv": "^2.0.1",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^10.0.0",
     "focus-visible": "^5.2.0",
