@@ -23,7 +23,6 @@
 </main>
 
 <style>
-
 	main {
 		padding: 1em;
 		padding-bottom: 0;

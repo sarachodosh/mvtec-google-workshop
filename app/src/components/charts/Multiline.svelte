@@ -1,37 +1,4 @@
 <script>
-<<<<<<< HEAD
-	import { getContext } from 'svelte';
-
-	const { data, xGet, yGet, zGet, xScale, yScale, xRange, yRange, xDomain, yDomain } = getContext('LayerCake');
-
-	$: path = values => {
-        // console.log(values)
-		return 'M' + values
-			.map(d => {
-				return $xGet(d) + ',' + $yGet(d);
-			})
-			.join('L');
-	};
-</script>
-
-<g class="line-group">
-	{#each $data as group}
-		<path
-			class='path-line'
-			d='{path(group.values)}'
-			stroke="#000"
-		></path>
-	{/each}
-</g>
-
-<style>
-	.path-line {
-		fill: none;
-		stroke-linejoin: round;
-		stroke-linecap: round;
-		stroke-width: 1px;
-	}
-=======
 	import Axis from '../common/Axis.svelte';
 	import PointInteractive from '../common/PointInteractive.svelte';
 	import {line} from 'd3-shape';
@@ -120,5 +87,4 @@
     path {
         transition: opacity .3s;
     }
->>>>>>> parent of 8dfda1a (started new svelte page)
 </style>

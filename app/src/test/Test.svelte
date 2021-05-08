@@ -3,7 +3,7 @@
 	import Line from '../components/charts/Line.svelte'
 	import Area from '../components/charts/Area.svelte'
 	import Bars from '../components/charts/Bars.svelte'
-	import Multiline from '../components/charts/Multiline_example.svelte'
+	import Multiline from '../components/charts/Multiline.svelte'
 	import Scatter from '../components/charts/Scatter.svelte'
 	import ScatterCanvas from '../components/charts/ScatterCanvas.svelte'
 	import Mapbox from '../components/maps/Mapbox.svelte'
