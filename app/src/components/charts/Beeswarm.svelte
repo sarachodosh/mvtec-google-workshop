@@ -2,10 +2,16 @@
     import { getContext } from 'svelte';
     import { forceSimulation, forceX, forceY, forceCollide } from 'd3-force';
 
-    const { data, xGet, height, zGet, custom } = getContext('LayerCake');
+    const { data, xGet, width, height, rGet, zGet } = getContext('LayerCake');
 
-    const nodes = $data.map((d) => ({ ...d }));
-    // console.log(nodes)
+    const nodes = $data.map(d => ({ ...d }));
+    nodes.forEach(date => date.date = new Date(date.month));
+    nodes.forEach(date => date.dateNum = +date.monthNum);
+    nodes.forEach(value => value.value = +value.value);
+    
+    console.log(nodes[0])
+    console.log(typeof nodes[0]['dateNum'])
+    console.log(typeof nodes[0]['value'])
 
     export let r = 4;
     export let xStrength = 0.95;
@@ -20,27 +26,24 @@
 		.force('collide', forceCollide(r))
 		.stop();
 
+    const iterations = 10;
+
 	$: {
-		for ( var i = 0,
-			n = 150;
-			// The REPL thinks there is an infinite loop with this next line but it's generally a better way to go
-			//n = Math.ceil(Math.log(simulation.alphaMin()) / Math.log(1 - simulation.alphaDecay()));
-			i < n;
-			++i ) {
-			simulation.tick();
-		}
+		for (let i = 0; i < iterations; ++i) {
+            simulation.tick();
+        }
 	}
 </script>
 
 <g class='bee-group'>
     {#each simulation.nodes() as node}
         <circle 
-            fill='{fillColor}'
-            stroke='{strokeColor}'
-            stroke-width='{strokeWidth}'
-            cx='{nodes.x}'
-            cy='{nodes.y}'
-            r='{r}'
+            stroke={strokeColor}
+            stroke-width={strokeWidth}
+            cx='{node.x}'
+            cy='{node.y}'
+            r={r}
+            fill={fillColor || $zGet(node)}
         >
 
         </circle>
