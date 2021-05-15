@@ -10,7 +10,7 @@
 	import Map from '../components/maps/Map.svelte'
 	import Scroller from '@sveltejs/svelte-scroller'
   	import Sankey from '../components/charts/Sankey.svelte'
-	import {curveMonotoneX} from 'd3-shape'
+	import {curveMonotoneX} from 'd3-shape' 
 	import { Button, ButtonGroup, ButtonGroupItem } from 'svelte-materialify';
 
 	//Test data
@@ -202,7 +202,7 @@
 		}
 	/>
 	
-	<!-- <Scroller top={0} bottom={1} bind:index bind:offset bind:progress>
+	<Scroller top={0} bottom={1} bind:index bind:offset bind:progress>
 	<div slot="background">
 		<Mapbox 
 			options={
@@ -222,7 +222,7 @@
 		<section><p class='col'>This is the second section.</p></section>
 		<section><p class='col'>This is the third section.</p></section>
 	</div>
-	</Scroller> -->
+	</Scroller>
 
 	<Map 
 		data={cases.data}
