@@ -69,6 +69,10 @@ a:hover {
 	margin-bottom:3rem;
 }
 
+.graphic-tall {
+	height:100%;
+}
+
 .col, .wide {
 	margin: 0 auto;
 	width: 100%;
@@ -124,6 +128,6 @@ menu {
 		width:100%;
 	}
 
-	.col { width:40rem; }
+	.col { width:50rem; }
 	.wide { width:60rem; }
 }

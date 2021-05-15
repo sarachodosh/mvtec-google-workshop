@@ -16,6 +16,7 @@
     // import weather2 from '../data/weather2.json';
     // import {curveMonotoneX} from 'd3-shape'
 
+
 	import dataB from '../data/dataB_long.csv';
     import dataA from '../data/dataA_long.csv';
     import { curveCatmullRom } from 'd3-shape';
@@ -30,15 +31,14 @@
 
 </script>
 
-<style>
-    
-</style>
+
 
 <Joyplot
     data={dataB}
     options={
         {
-			curve: curveCatmullRom
+			curve: curveCatmullRom,
+            layout: 'col'
         }
     }
 />

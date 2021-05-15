@@ -2,7 +2,7 @@
 	import Axis from '../common/Axis.svelte';
 	import PointInteractive from '../common/PointInteractive.svelte';
 	import {line} from 'd3-shape';
-    import {scaleTime, scaleLinear} from 'd3-scale';
+    import {scaleTime, scaleLinear, scalePoint} from 'd3-scale';
     import {max, extent} from 'd3-array'
     import { Delaunay } from 'd3-delaunay'
 	import * as d3 from 'd3'
@@ -10,9 +10,10 @@
     export let data;
 	export let margin = {top: 20, right: 5, bottom: 20, left: 5};
 	export let options;
-	let { curve } = options;
+	let { curve, layout } = options;
 
-	let datum, width, height;
+	let datum, width; //height went here
+
 
 	data.forEach(date => date.date = new Date(date.month));
     data.forEach(value => value.value = +value.value);
@@ -21,30 +22,46 @@
 
 	const dataGrouped = d3.groups(data, d => d.term);
 
-	console.log(dataGrouped)
-	console.log(extent(data, d => d.date))
+	// adding index for spacing joy plot
+	for (let i=0; i<dataGrouped.length; ++i) {
+		dataGrouped[i].push(i);
+	}
+
+	const overlap = 8;
+	const spacing = 25;
+
+	var height = dataGrouped.length * 20;
 
 	$: x = scaleTime()
 		.domain(extent(data, d => d.date))
 		.range([margin.left, width - margin.right]);
 	
-	$: y = scaleLinear()
-		.domain([0, max(data, d => d.value)])
-		.range([height - margin.bottom - margin.top, margin.top]);
+	// $: y = scaleLinear()
+	// 	.domain([0, max(data, d => d.value)])
+	// 	.range([height - margin.bottom - margin.top, margin.top]);
+	
+	$: y = scalePoint()
+		.domain(dataGrouped.map(d => d[0]))
+		.range([margin.top, height - margin.bottom - margin.top]);
+
+	$: z = scaleLinear()
+		.domain([0, d3.max(data, d => d.value)])
+		.range([0, -overlap * y.step()])
 
 	$: path = line()
 		.x(d => x(d.date))
-		.y(d => y(d.value))
+		.y(d => z(d.value))
         .curve(curve);
 
 
-    // $: delaunay = Delaunay.from(_data, d => x(d.x), d => y(d.y))
+
+    $: delaunay = Delaunay.from(data, d => x(d.date), d => y(d.value))
 
 	const mouseMove = (m) => {
         const mX = (m.offsetX) ? m.offsetX : m.clientX;
         const mY = (m.offsetY) ? m.offsetY : m.clientY;
         const picked = delaunay.find(mX, mY);
-        datum = _data[picked];
+        datum = dataGrouped[picked];
 	}
 
 	const leave = (m) => {
@@ -56,16 +73,18 @@
         else return 1;
     }
 
+	
+
 </script> 
 
-<div bind:clientWidth={width} bind:clientHeight={height}>
+<div class='graphic-tall {layout}' bind:clientWidth={width} height={height}>
 {#if width}
 <svg xmlns:svg='https://www.w3.org/2000/svg' 
-	viewBox='0 0 800 800'
+	viewBox='0 0 {width} {height}'
 	{width}
 	{height}
 	role='img'
-    aria-labelledby='title desc'
+    aria-labelledby='p'
     on:touchmove|preventDefault
 	on:pointermove|preventDefault={mouseMove}
 	on:mouseleave={leave}
@@ -75,11 +94,13 @@
 	<!-- <desc id='desc'>{desc}</desc> -->
 	<g>
         {#each dataGrouped as d}
+		<p>TK</p>
 		<path 
 			d={path(d[1])}
 			stroke='#000'
             fill='none'
             opacity='1'
+			transform='translate(0, {d[2]*spacing})'
         />
         {/each}
 	</g>
@@ -89,6 +110,8 @@
 
 	<!-- <PointInteractive {datum} {format} {x} {y} key={{x:'x', y:'y'}} {width} /> -->
 	
+	<!-- transform='translate({d[2]*100}, 0)' -->
+
 </svg>
 {/if}
 </div>

@@ -10,6 +10,8 @@
 	export let options;
 	let {key, format, color, layout, title, desc } = options;
 
+
+
 	let datum, width, height;
 
     $: barwidth = (width - margin.left - margin.right) / data.length;
@@ -23,6 +25,7 @@
 		.range([height - margin.bottom - margin.top, margin.top]);
 
 </script> 
+
 
 <div class='graphic {layout}' bind:clientWidth={width} bind:clientHeight={height}>
 {#if width}

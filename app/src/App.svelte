@@ -19,7 +19,7 @@
 			He bowed, expecting me to go;-and then, with quick steps, but a heavy heart, I came to my own room. His question, I am sure, meant Sir Clement Willoughby; and had I not imposed upon myself the severe task of avoiding, flying Lord Orville, with all my power, I would instantly have satisfied him of my ignorance of Sir Clement's journey. And yet more did I long to say something of the assembly, since I found he depended upon my spending the evening at home.
 		</div>
 		<div slot="team">
-			Student, student, student ...
+			Xavier Bollo, Sara Chodosh, and Santiago Salcido
 		</div>
 	</Footer>
 </main>
