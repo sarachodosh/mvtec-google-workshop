@@ -60,6 +60,68 @@
   </p>
 </div>
 
+<!-- CHART 1 -->
+<div class="contentWrapper">
+  <div class="sectionsComp">
+    <h2>Subtitle</h2>
+  </div>
+  <p>
+    Lead Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor inci didunt ut labore et dolore magna aliqua. Ultricies leo integer
+    malesuada nunc vel risus commodo viverra. Massa tempor nec feugiat nisl
+    pretium fusce id velit. Et netus et malesuada fames ac turpis. Non pulvinar
+    neque laoreet suspendisse interdum consectetur libero id. Senectus et netus
+    et malesuada fames ac turpis.
+  </p>
+</div>
+<p align="center">
+  <iframe
+    width="70%"
+    height="382"
+    frameborder="0"
+    src="https://observablehq.com/embed/@sechodosh/google-trends?cells=beeswarm"
+    style="align=center"
+  />
+</p>
+
+<!-- CHART 2 -->
+<div class="contentWrapper">
+  <div class="sectionsComp">
+    <h2>Subtitle</h2>
+  </div>
+  <p>
+    Lead Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor inci didunt ut labore et dolore magna aliqua. Ultricies leo integer
+    malesuada nunc vel risus commodo viverra. Massa tempor nec feugiat nisl
+    pretium fusce id velit. Et netus et malesuada fames ac turpis. Non pulvinar
+    neque laoreet suspendisse interdum consectetur libero id. Senectus et netus
+    et malesuada fames ac turpis.
+  </p>
+</div>
+<p align="center">
+  <iframe
+    width="70%"
+    height="382"
+    frameborder="0"
+    src="https://observablehq.com/embed/@sechodosh/google-trends?cells=beeswarm"
+    style="align=center"
+  />
+</p>
+
+<!-- CHART 3 -->
+<div class="contentWrapper">
+  <div class="sectionsComp">
+    <h2>Subtitle</h2>
+  </div>
+  <p>
+    Lead Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor inci didunt ut labore et dolore magna aliqua. Ultricies leo integer
+    malesuada nunc vel risus commodo viverra. Massa tempor nec feugiat nisl
+    pretium fusce id velit. Et netus et malesuada fames ac turpis. Non pulvinar
+    neque laoreet suspendisse interdum consectetur libero id. Senectus et netus
+    et malesuada fames ac turpis.
+  </p>
+</div>
 <p align="center">
   <iframe
     width="70%"
@@ -337,5 +399,22 @@
     font-weight: 800;
     font-size: 20px;
     line-height: 160%;
+  }
+  .sectionsComp {
+    justify-content: left;
+    flex-direction: column;
+    align-items: left;
+    margin: auto;
+    display: flex;
+    padding: 64px 0px 32px 0px;
+  }
+  h2 {
+    margin: 32px 0px 0px 0px;
+    line-height: 64px;
+    font-weight: 600;
+    /* font-size: 48px; */
+    border-top: 2px solid #bdbdbd;
+    padding-top: 32px;
+    font-family: "Nunito";
   }
 </style>
