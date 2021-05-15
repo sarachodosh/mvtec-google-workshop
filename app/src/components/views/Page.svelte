@@ -27,7 +27,7 @@
 
 <!-- HERO -->
 <div class="hero">
-  <p class="headline1">What looking for help mean?</p>
+  <p class="headline1">How we ask Google for help?</p>
   <p class="author">
     By <span style="font-weight:600">Sara Chodosh, Xavier Bolló</span> and
     <span style="font-weight:600">Santiago Salcido</span>
@@ -62,7 +62,7 @@
 <!-- CHART 1 -->
 <div class="contentWrapper">
   <div class="sectionsComp">
-    <h2>Circle Packing</h2>
+    <h2>Mental health issues dominate searches</h2>
   </div>
   <p>
     Searches for “how to help _____” or “how to help someone with _____” are consistently dominated by mental health issues. 
@@ -88,7 +88,7 @@ height="auto"
 <!-- CHART 2 -->
 <div class="contentWrapper">
   <div class="sectionsComp">
-    <h2>JoyPlot</h2>
+    <h2>Sudden tragedies draw our attention, but not for long</h2>
   </div>
   <p>
     There are blips where natural disasters strike—a flood, a hurricane—or during political upheaval and other crises. But these abstract tragedies don’t capture our attention for long. Their peaks rise and fall again quickly. Meanwhile, interest in the everyday tragedies that strike us and our loved ones, from depression to anorexia, stays fairly high.
@@ -117,7 +117,7 @@ height="auto"
 <!-- CHART 3 -->
 <div class="contentWrapper">
   <div class="sectionsComp">
-    <h2>Subtitle</h2>
+    <h2>Depression is consistently one of our top concerns</h2>
   </div>
   <p>
     It took a global pandemic to overtake the top spot from depression, and even the interest in that waned fairly quickly. For now, these searches are between us and the Google search bar. But if the coronavirus teaches us anything, it should be that we need to lean on each other—we’re all searching for help about the same things.
@@ -422,7 +422,7 @@ height="auto"
   }
   h2 {
     margin: 32px 0px 0px 0px;
-    line-height: 64px;
+    line-height: 48px;
     font-weight: 600;
     /* font-size: 48px; */
     border-top: 2px solid #bdbdbd;
