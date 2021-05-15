@@ -13,6 +13,17 @@
     console.log(typeof nodes[0]['dateNum'])
     console.log(typeof nodes[0]['value'])
 
+    // console.log(NaNchecker(nodes.dateNum))
+
+    // function NaNchecker(array) {
+    //     for (let i=0; i < array.length; ++i){
+    //     // check if array value is false or NaN
+    //         if (isNaN(array[i])) {
+    //             console.log("Not a number at index " + i + ": "+array[i]);
+    //         }
+    //     }
+    // }
+
     export let r = 4;
     export let xStrength = 0.95;
     export let yStrength = 0.075;
