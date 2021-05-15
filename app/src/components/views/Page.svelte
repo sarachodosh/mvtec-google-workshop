@@ -67,8 +67,14 @@
   <p>
     Searches for “how to help _____” or “how to help someone with _____” are consistently dominated by mental health issues. 
   </p>
+  <img
+src="https://github.com/sarachodosh/mvtec-google-workshop/raw/santiago/app/src/img/circlePacking.png"
+alt="heatMapA"
+width="100%"
+height="auto"
+/>
 </div>
-<p align="center">
+<!-- <p align="center">
   <iframe
     width="70%"
     height="382"
@@ -76,7 +82,8 @@
     src="https://observablehq.com/embed/@sechodosh/google-trends?cells=beeswarm"
     style="align=center"
   />
-</p>
+</p> -->
+
 
 <!-- CHART 2 -->
 <div class="contentWrapper">
@@ -89,8 +96,14 @@
   <p>
     Interest in some of these has risen sharply in the last year—rape, anger management, and anxiety, to name a few. Others have seen a steady rise. Perhaps no topic has been of as much interest, though, as depression.
   </p>
+  <img
+    src="https://github.com/sarachodosh/mvtec-google-workshop/raw/santiago/app/src/img/joyPlot2.png"
+    alt="heatMapA"
+    width="100%"
+    height="auto"
+  />
 </div>
-<p align="center">
+<!-- <p align="center">
   <iframe
     width="70%"
     height="382"
@@ -98,7 +111,8 @@
     src="https://observablehq.com/embed/@sechodosh/google-trends?cells=beeswarm"
     style="align=center"
   />
-</p>
+</p> -->
+
 
 <!-- CHART 3 -->
 <div class="contentWrapper">
