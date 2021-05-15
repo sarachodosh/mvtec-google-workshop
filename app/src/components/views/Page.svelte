@@ -33,7 +33,7 @@
     <span style="font-weight:600">Santiago Salcido</span>
   </p>
   <p class="date">May 19, 2021</p>
-  <img src="searchImg.png" alt="search" width="100" height="100">
+  <img src="https://github.com/sarachodosh/mvtec-google-workshop/raw/santiago/app/src/components/views/searchImg.png" alt="search" width="1000px" height="144px">
 </div>
 
 <p align="center">
