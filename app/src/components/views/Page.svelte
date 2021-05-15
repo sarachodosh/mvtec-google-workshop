@@ -49,29 +49,23 @@
 
 <div class="contentWrapper">
   <p class="lead">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat donec
-    pretium, proin metus. Amet, malesuada dui purus amet ullamcorper dui, nec.
-    Dis nisl eu tristique dolor fames consectetur.
+    Asking for help is one of the hardest things to do. But asking Google is easy.
+  </p>
+  <p class="lead">
+    Over the years, we’ve asked Google for help with a lot of things—about bees, for example, but also hoarding and floods—and the beauty of the resulting data is that it reveals what we are most private about asking. To reach out to a friend to get help with alcoholism or to offer support for someone struggling with grief is to be vulnerable. What you ask Google stays between you and Google. 
   </p>
   <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat donec
-    pretium, proin metus. Amet, malesuada dui purus amet ullamcorper dui, nec.
-    Dis nisl eu tristique dolor fames consectetur.
+    In the midst of the pandemic, conversations about mental health have emerged in the media. But Google Trends data shows that we were always dealing with these issues—it’s just that no one was talking to each other about it. 
   </p>
 </div>
 
 <!-- CHART 1 -->
 <div class="contentWrapper">
   <div class="sectionsComp">
-    <h2>Subtitle</h2>
+    <h2>Circle Packing</h2>
   </div>
   <p>
-    Lead Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor inci didunt ut labore et dolore magna aliqua. Ultricies leo integer
-    malesuada nunc vel risus commodo viverra. Massa tempor nec feugiat nisl
-    pretium fusce id velit. Et netus et malesuada fames ac turpis. Non pulvinar
-    neque laoreet suspendisse interdum consectetur libero id. Senectus et netus
-    et malesuada fames ac turpis.
+    Searches for “how to help _____” or “how to help someone with _____” are consistently dominated by mental health issues. 
   </p>
 </div>
 <p align="center">
@@ -87,15 +81,13 @@
 <!-- CHART 2 -->
 <div class="contentWrapper">
   <div class="sectionsComp">
-    <h2>Subtitle</h2>
+    <h2>JoyPlot</h2>
   </div>
   <p>
-    Lead Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor inci didunt ut labore et dolore magna aliqua. Ultricies leo integer
-    malesuada nunc vel risus commodo viverra. Massa tempor nec feugiat nisl
-    pretium fusce id velit. Et netus et malesuada fames ac turpis. Non pulvinar
-    neque laoreet suspendisse interdum consectetur libero id. Senectus et netus
-    et malesuada fames ac turpis.
+    There are blips where natural disasters strike—a flood, a hurricane—or during political upheaval and other crises. But these abstract tragedies don’t capture our attention for long. Their peaks rise and fall again quickly. Meanwhile, interest in the everyday tragedies that strike us and our loved ones, from depression to anorexia, stays fairly high.
+  </p>
+  <p>
+    Interest in some of these has risen sharply in the last year—rape, anger management, and anxiety, to name a few. Others have seen a steady rise. Perhaps no topic has been of as much interest, though, as depression.
   </p>
 </div>
 <p align="center">
@@ -114,23 +106,24 @@
     <h2>Subtitle</h2>
   </div>
   <p>
-    Lead Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor inci didunt ut labore et dolore magna aliqua. Ultricies leo integer
-    malesuada nunc vel risus commodo viverra. Massa tempor nec feugiat nisl
-    pretium fusce id velit. Et netus et malesuada fames ac turpis. Non pulvinar
-    neque laoreet suspendisse interdum consectetur libero id. Senectus et netus
-    et malesuada fames ac turpis.
+    It took a global pandemic to overtake the top spot from depression, and even the interest in that waned fairly quickly. For now, these searches are between us and the Google search bar. But if the coronavirus teaches us anything, it should be that we need to lean on each other—we’re all searching for help about the same things.
+  </p>
+  <img
+    src="https://github.com/sarachodosh/mvtec-google-workshop/raw/santiago/app/src/img/heatMapA.png"
+    alt="heatMapA"
+    width="100%"
+    height="auto"
+  />
+  <img
+    src="https://github.com/sarachodosh/mvtec-google-workshop/raw/santiago/app/src/img/heatMapB.png"
+    alt="heatMapA"
+    width="100%"
+    height="auto"
+  />
+  <p>
+    
   </p>
 </div>
-<p align="center">
-  <iframe
-    width="70%"
-    height="382"
-    frameborder="0"
-    src="https://observablehq.com/embed/@sechodosh/google-trends?cells=beeswarm"
-    style="align=center"
-  />
-</p>
 
 <!-- <button class="disable" on:click={() => disabled = !disabled}>disable</button> -->
 <!-- <div class='col'>
@@ -386,6 +379,11 @@
     line-height: 24px;
     margin-top: 4px;
     color: #858585;
+  }
+
+  p {
+    margin-top: 24px;
+    margin-bottom: 24px;
   }
 
   .contentWrapper {
