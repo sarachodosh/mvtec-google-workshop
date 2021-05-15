@@ -6,14 +6,15 @@ html, body {
 	text-align: left;
 }
 body {
-	color: #000;
+	color: #413E45;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	font-style: normal;
+	background-color: #fcfcfc;
 }
 
-h1, h2, h3 { font-family: 'Bitter', sans-serif; }
+h1, h2, h3 { font-family: 'Nunito','Bitter', sans-serif; }
 
 h1 {
 	font-weight: 200;
@@ -119,7 +120,7 @@ menu {
 		padding:0;
 		margin:0;
 		height:3rem;
-		position: fixed;
+		/* position: fixed; */
 		top:0;
 		width:100%;
 	}
