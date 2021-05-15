@@ -1,16 +1,16 @@
 <script>
 	import Axis from '../common/Axis.svelte';
 	import PointInteractive from '../common/PointInteractive.svelte';
-	import {line} from 'd3-shape';
-    import {scaleTime, scaleLinear, scalePoint} from 'd3-scale';
+	import {line, area} from 'd3-shape';
+    import {scaleTime, scaleLinear, scalePoint, scaleOrdinal} from 'd3-scale';
     import {max, extent} from 'd3-array'
     import { Delaunay } from 'd3-delaunay'
 	import * as d3 from 'd3'
     
     export let data;
-	export let margin = {top: 500, right: 5, bottom: 20, left: 5};
+	export let margin = {top: 50, right: 5, bottom: 20, left: 200};
 	export let options;
-	let { curve, layout } = options;
+	let { curve, layout, format } = options;
 
 	let datum, width; //height went here
 
@@ -27,10 +27,16 @@
 		dataGrouped[i].push(i);
 	}
 
-	const overlap = 8;
+	const overlap = 0.8;
 	const spacing = 25;
 
 	var height = dataGrouped.length * spacing;
+
+	const colors = ['#ec4977', '#ff9063', '#ffd577', '#baf29d', '#00dcd5', '#0cb4f5']
+	const terms = ['mental health', 'location', 'climate', 'social problem', 'health', 'natural disaster']
+	const colorScale = scaleOrdinal()
+		.domain(terms)
+		.range(colors)
 
 	$: x = scaleTime()
 		.domain(extent(data, d => d.date))
@@ -53,7 +59,11 @@
 		.y(d => z(d.value))
         .curve(curve);
 
-
+	$: filledPath = area()
+		.x(d => x(d.date))
+		.y0(0)
+		.y1(d => z(d.value))
+		.curve(curve)
 
     $: delaunay = Delaunay.from(data, d => x(d.date), d => y(d.value))
 
@@ -94,18 +104,31 @@
 	<!-- <desc id='desc'>{desc}</desc> -->
 	<g>
         {#each dataGrouped as d}
-		<p>TK</p>
+		<text 
+			transform='translate(200, {y(d[0])})'
+			text-anchor='end'
+		>{d[0]}</text>
+		<path 
+			d={filledPath(d[1])}
+			stroke='none'
+            fill={colorScale(d[1][0]['category'])}
+            opacity='0.5'
+			transform='translate(10, {y(d[0])})'
+        />
 		<path 
 			d={path(d[1])}
-			stroke='#000'
+			stroke={colorScale(d[1][0]['category'])}
+			stroke-width='1.5'
             fill='none'
             opacity='1'
-			transform='translate(0, {d[2]*spacing})'
+			transform='translate(10, {y(d[0])})'
         />
         {/each}
+
 	</g>
 
-	<!-- <Axis {width} {height} {margin} scale={y} position='left' format={format.y} /> -->
+
+	<!-- <Axis {width} {height} {margin} scale={y} position='left'/> -->
 	<!-- <Axis {width} {height} {margin} scale={x} position='bottom' format={format.x} /> -->
 
 	<!-- <PointInteractive {datum} {format} {x} {y} key={{x:'x', y:'y'}} {width} /> -->

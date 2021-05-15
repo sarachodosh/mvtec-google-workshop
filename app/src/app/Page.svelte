@@ -22,12 +22,12 @@
     import { curveCatmullRom } from 'd3-shape';
     
     // For beeswarm
-	const xKey = 'dateNum'; // NEED TO CHANGE THIS TO dateNum!
-    const zKey = 'category';
-    const rKey = 'value';
-	const r = 4;
+	// const xKey = 'dateNum'; // NEED TO CHANGE THIS TO dateNum!
+    // const zKey = 'category';
+    // const rKey = 'value';
+	// const r = 4;
 
-    const colors = ['#ec4977', '#ff9063', '#ffd577', '#baf29d', '#00dcd5', '#0cb4f5'];
+    // const colors = ['#ec4977', '#ff9063', '#ffd577', '#baf29d', '#00dcd5', '#0cb4f5'];
 
 </script>
 
@@ -38,7 +38,8 @@
     options={
         {
 			curve: curveCatmullRom,
-            layout: 'col'
+            layout: 'col',
+            format: format
         }
     }
 />
