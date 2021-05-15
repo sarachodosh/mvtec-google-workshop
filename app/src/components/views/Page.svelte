@@ -33,7 +33,31 @@
     <span style="font-weight:600">Santiago Salcido</span>
   </p>
   <p class="date">May 19, 2021</p>
-  <img src="https://github.com/sarachodosh/mvtec-google-workshop/raw/santiago/app/src/components/views/searchImg.png" alt="search" width="1000px" height="144px">
+</div>
+
+<p align="center">
+  <img
+    src="https://github.com/sarachodosh/mvtec-google-workshop/raw/santiago/app/src/img/searchImg.png"
+    alt="search"
+    width="1000"
+    height="auto"
+    style="
+    padding-bottom: 60px;
+"
+  />
+</p>
+
+<div class="contentWrapper">
+  <p class="lead">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat donec
+    pretium, proin metus. Amet, malesuada dui purus amet ullamcorper dui, nec.
+    Dis nisl eu tristique dolor fames consectetur.
+  </p>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat donec
+    pretium, proin metus. Amet, malesuada dui purus amet ullamcorper dui, nec.
+    Dis nisl eu tristique dolor fames consectetur.
+  </p>
 </div>
 
 <p align="center">
@@ -45,6 +69,7 @@
     style="align=center"
   />
 </p>
+
 <!-- <button class="disable" on:click={() => disabled = !disabled}>disable</button> -->
 <!-- <div class='col'>
     <p>This is an example of how you can do smooth transitions. It uses canvas so you can do a few thousand elements. Instead of the buttons triggering which step is in view, you can use the scroll ...  </p>
@@ -258,19 +283,20 @@
   .hero {
     max-width: 680px;
     padding-top: 144px;
+    /* padding-bottom: 288px; */
     margin: auto;
     position: static;
-    width: 1440px;
-    height: 900px;
+    /* width: 1440px; */
+    height: 500px;
     left: 0px;
     top: 57px;
     overflow-x: scroll;
-    background: #fcfcfc;
-    margin: auto;
+    /* background: #fcfcfc; */
     /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
   }
 
   .headline1 {
+    max-width: 680px;
     position: static;
     height: 192px;
     /*  left: 0px;
@@ -282,7 +308,7 @@
     font-size: 72px;
     line-height: 96px;
     display: flex;
-    align-items: flex-end;
+    /* align-items: flex-end; */
     letter-spacing: -1px;
     font-feature-settings: "pnum" on, "lnum" on;
   }
@@ -298,5 +324,18 @@
     line-height: 24px;
     margin-top: 4px;
     color: #858585;
+  }
+
+  .contentWrapper {
+    max-width: 680px;
+    margin: auto;
+  }
+
+  .lead {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 160%;
   }
 </style>
