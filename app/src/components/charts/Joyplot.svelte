@@ -8,7 +8,7 @@
 	import * as d3 from 'd3'
     
     export let data;
-	export let margin = {top: 20, right: 5, bottom: 20, left: 5};
+	export let margin = {top: 500, right: 5, bottom: 20, left: 5};
 	export let options;
 	let { curve, layout } = options;
 
@@ -30,7 +30,7 @@
 	const overlap = 8;
 	const spacing = 25;
 
-	var height = dataGrouped.length * 20;
+	var height = dataGrouped.length * spacing;
 
 	$: x = scaleTime()
 		.domain(extent(data, d => d.date))

@@ -71,6 +71,8 @@ a:hover {
 
 .graphic-tall {
 	height:100%;
+	margin-top:3rem;
+	margin-bottom:3rem;
 }
 
 .col, .wide {
