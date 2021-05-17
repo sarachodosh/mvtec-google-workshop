@@ -4,6 +4,7 @@
 	import { scaleOrdinal } from 'd3-scale';
 	import Beeswarm from '../components/charts/Beeswarm.svelte'; 
     import Joyplot from '../components/charts/Joyplot.svelte';
+    import CirclePacking from '../components/charts/CirclePacking.svelte';
 
     import { timeParse, timeFormat } from 'd3-time-format';
     import { format, precisionFixed } from 'd3-format';
@@ -19,6 +20,7 @@
 
 	import dataB from '../data/dataB_long.csv';
     import dataA from '../data/dataA_long.csv';
+    import dataG from '../data/dataG.csv';
     import { curveCatmullRom } from 'd3-shape';
     
     // For beeswarm
@@ -43,7 +45,9 @@
         }
     }
 />
-
+<CirclePacking
+    data={dataG}
+/>
 
 
 

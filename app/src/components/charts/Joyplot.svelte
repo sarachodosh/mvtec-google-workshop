@@ -3,9 +3,8 @@
 	import PointInteractive from '../common/PointInteractive.svelte';
 	import {line, area} from 'd3-shape';
     import {scaleTime, scaleLinear, scalePoint, scaleOrdinal} from 'd3-scale';
-    import {max, extent} from 'd3-array'
+    import {max, extent, groups} from 'd3-array'
     import { Delaunay } from 'd3-delaunay'
-	import * as d3 from 'd3'
     
     export let data;
 	export let margin = {top: 50, right: 5, bottom: 20, left: 200};
@@ -20,7 +19,7 @@
     
 	// console.log(data)
 
-	const dataGrouped = d3.groups(data, d => d.term);
+	const dataGrouped = groups(data, d => d.term);
 
 	// adding index for spacing joy plot
 	for (let i=0; i<dataGrouped.length; ++i) {
@@ -51,7 +50,7 @@
 		.range([margin.top, height - margin.bottom - margin.top]);
 
 	$: z = scaleLinear()
-		.domain([0, d3.max(data, d => d.value)])
+		.domain([0, max(data, d => d.value)])
 		.range([0, -overlap * y.step()])
 
 	$: path = line()
