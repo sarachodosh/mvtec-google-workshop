@@ -22,8 +22,12 @@
     import dataA from '../data/dataA_long.csv';
     import dataG from '../data/dataG.csv';
     import { curveCatmullRom } from 'd3-shape';
+
+    import * as d3 from 'd3';
+    import { onMount } from 'svelte';
+
     
-    // For beeswarm
+    // For beeswarm -- OLD
 	// const xKey = 'dateNum'; // NEED TO CHANGE THIS TO dateNum!
     // const zKey = 'category';
     // const rKey = 'value';
@@ -31,23 +35,28 @@
 
     // const colors = ['#ec4977', '#ff9063', '#ffd577', '#baf29d', '#00dcd5', '#0cb4f5'];
 
+
+
 </script>
 
+<Beeswarm 
+    data={dataB}
+/>
 
+<CirclePacking
+    data={dataG}
+/>
 
 <Joyplot
     data={dataB}
     options={
         {
 			curve: curveCatmullRom,
-            layout: 'col',
-            format: format
+            layout: 'col'
         }
     }
 />
-<CirclePacking
-    data={dataG}
-/>
+
 
 
 
