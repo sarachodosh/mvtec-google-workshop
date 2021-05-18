@@ -13,11 +13,6 @@ import { onMount } from 'svelte';
     const colors = ['#ec4977', '#ff9063', '#ffd577', '#baf29d', '#00dcd5', '#0cb4f5'];
     const colorScale = d3.scaleOrdinal().domain(categories).range(colors);
 
-    export let dots = [];
-    export let forces = [];
-
-    let renderedDots = [];
-
     $: xScale = d3.scaleTime()
         .domain(d3.extent(data, d => d.month))
         .range([0, chartWidth])
