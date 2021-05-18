@@ -1,7 +1,8 @@
 <script>
+	
 	import Menu from './components/common/Menu.svelte'
 	// import Test from './test/Test.svelte'
-	import Page from './components/views/Page.svelte'
+	import Page from './app/Page.svelte'
 	import Footer from './components/common/Footer.svelte'
 
 </script>
