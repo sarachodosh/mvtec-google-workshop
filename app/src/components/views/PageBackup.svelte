@@ -24,13 +24,10 @@
   }));
 </script>
 
-<!-- BACKGROUND IMG PRE-LOADER -->
+<!-- Background image pre-loader -->
 <div id="preload">
-  <!-- svelte-ignore a11y-missing-attribute -->
-  <img
-    src="https://github.com/sarachodosh/mvtec-google-workshop/raw/santiago/app/public/img/heroBackground.svg"
-  />
-</div>
+  <img src="https://github.com/sarachodosh/mvtec-google-workshop/raw/santiago/app/public/img/heroBackground.svg" />
+  </div>
 
 <!-- HERO -->
 <div class="hero">
@@ -54,8 +51,21 @@
   </div>
 </div>
 
+<!-- OLD IDEA with the search bar, erase before final commit -->
+<!-- <p align="center">
+  <img
+    src="https://github.com/sarachodosh/mvtec-google-workshop/raw/santiago/app/src/img/searchImg.png"
+    alt="search"
+    width="1000"
+    height="auto"
+    style="
+    padding-bottom: 60px;
+"
+  />
+</p> -->
+
 <!-- CONTENT -->
-<!-- <div class="contentWrapper">
+<div class="contentWrapper">
   <p class="lead">
     Asking for help is one of the hardest things to do. But asking Google is
     easy.
@@ -73,189 +83,7 @@
     in the media. But Google Trends data shows that we were always dealing with
     these issues—it’s just that no one was talking to each other about it.
   </p>
-</div> -->
-
-<!-- PARALLAX TEST -->
-
-<Parallax
-  sections="2"
-  style="background-color: 
-  
-  background: rgb(166,237,231);
-background: linear-gradient(180deg, rgba(166,237,231,1) 0%, rgba(0,40,105,1) 75%);
-  
-  "
-    bind:this={parallax}
->
-  <ParallaxLayer offset="1" rate="1" style="background-color: #cc0000;" />
-  <ParallaxLayer offset="2" rate="1" style="background-color: #87BCDE;" />
-
-  <ParallaxLayer
-    offset="0"
-    rate="1"
-    span="3"
-    style="background-image: {url('stars', true)}; background-size: cover;"
-  />
-  <ParallaxLayer offset="0.3" rate=".5" span="1">
-    <div class="contentWrapper">
-      <p class="lead">
-        Over the years, we’ve asked Google for help with a lot of things—about
-        bees, for example, but also hoarding and floods—and the beauty of the
-        resulting data is that it reveals what we are most private about asking.
-        To reach out to a friend to get help with alcoholism or to offer support
-        for someone struggling with grief is to be vulnerable. What you ask
-        Google stays between you and Google.
-      </p>
-    </div>
-  </ParallaxLayer>
-
-  <ParallaxLayer offset="1" rate=".5" span="1">
-    <div class="contentWrapper">
-      <p class="lead">
-        In the midst of the pandemic, conversations about mental health have emerged in the media. But Google Trends data shows that we were always dealing with these issues—it’s just that no one was talking to each other about it.
-      </p>
-    </div>
-  </ParallaxLayer>
-
-  <!-- <ParallaxLayer offset="1.3" rate="-0.3">
-    <img
-      src={"https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/gradma_wanr.svg"}
-      alt=""
-      style="width: 15%; margin-left: 70%;"
-    />
-  </ParallaxLayer> -->
-
-  <!-- <ParallaxLayer offset="1" rate="0.8" style="opacity: 0.1;">
-    <img
-      src={url("cloud")}
-      alt=""
-      style="display: block; width: 20%; margin-left: 55%;"
-    />
-    <img
-      src={url("cloud")}
-      alt=""
-      style="display: block; width: 10%; margin-left: 15%;"
-    />
-  </ParallaxLayer> -->
-
-  <!-- <ParallaxLayer offset="1.75" rate="0.5" style="opacity: 0.1;">
-    <img
-      src={url("cloud")}
-      alt=""
-      style="display: block; width: 20%; margin-left: 70%;"
-    />
-    <img
-      src={url("cloud")}
-      alt=""
-      style="display: block; width: 20%; margin-left: 40%;"
-    />
-  </ParallaxLayer> -->
-
-  <!-- <ParallaxLayer offset="1" rate="0.2" style="opacity: 0.2;">
-    <img
-      src={url("cloud")}
-      alt=""
-      style="display: block; width: 10%; margin-left: 10%;"
-    />
-    <img
-      src={url("cloud")}
-      alt=""
-      style="display: block; width: 20%; margin-left: 75%;"
-    />
-  </ParallaxLayer> -->
-
-  <ParallaxLayer offset="1.6" rate="-0.1" style="opacity: 0.4;">
-    <img
-      src={url("cloud")}
-      alt=""
-      style="display: block; width: 20%; margin-left: 60%;"
-    />
-    <img
-      src={url("cloud")}
-      alt=""
-      style="display: block; width: 25%; margin-left: 30%;"
-    />
-    <img
-      src={url("cloud")}
-      alt=""
-      style="display: block; width: 10%; margin-left: 80%;"
-    />
-  </ParallaxLayer>
-
-  <ParallaxLayer offset="2.6" rate="0.4" style="opacity: 0.6;">
-    <img
-      src={url("cloud")}
-      alt=""
-      style="display: block; width: 20%; margin-left: 5%;"
-    />
-    <img
-      src={url("cloud")}
-      alt=""
-      style="display: block; width: 15%; margin-left: 75%;"
-    />
-  </ParallaxLayer>
-
-  <!-- <ParallaxLayer
-    offset="2.5"
-    rate="-0.4"
-    style="display: flex; align-items: center; justify-content: center;"
-  >
-    <img src={url("earth")} alt="" style="width: 60%;" />
-  </ParallaxLayer> -->
-
-  <!-- <ParallaxLayer
-    offset="2"
-    rate="-0.3"
-    style="display: flex; align-items: center; justify-content: center;"
-  >
-    <img
-      src={"https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/empty_street_sfxm.svg"}
-      alt=""
-      style="width: 50%;"
-    />
-  </ParallaxLayer> -->
-
-  <!-- <ParallaxLayer
-    offset="0"
-    rate="0.1"
-    style="display: flex; align-items: center; justify-content: center;"
-  >
-    <img
-      src={"https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/creative_thinking_b3bc.svg"}
-      alt=""
-      class="server"
-      style="width: 20%;"
-      on:click={() => parallax.scrollTo(2, { selector: ".bash" })}
-      on:keyup={(e) =>
-        e.key === "Enter" && parallax.scrollTo(2, { selector: ".bash" })}
-      tabindex="0"
-    />
-  </ParallaxLayer> -->
-
-  <!--   <ParallaxLayer
-    offset="1"
-    rate="0.1"
-    style="display: flex; align-items: center; justify-content: center;"
-  >
-    <img
-      src={"https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/fall_thyk.svg"}
-      alt=""
-      class="bash"
-      style="width: 40%;"
-      on:click={() => parallax.scrollTo(3, { selector: ".clients-main" })}
-      on:keyup={(e) =>
-        e.key === "Enter" &&
-        parallax.scrollTo(3, { selector: ".clients-main" })}
-      tabindex="0"
-    />
-  </ParallaxLayer> -->
-
-  <!-- <ParallaxLayer
-    offset="2"
-    rate="-0"
-    style="display: flex; align-items: center; justify-content: center;"
-  />-->
-</Parallax>
+</div>
 
 <!-- CHART 1 -->
 <div class="contentWrapper">
@@ -324,8 +152,29 @@ background: linear-gradient(180deg, rgba(166,237,231,1) 0%, rgba(0,40,105,1) 75%
   <p />
 </div>
 
+<!-- TEST import local images -->
+<img src="img/circlePacking.png" alt="background image" />
+
+<!-- ASK XAVI IF I CAN ERASE THIS -->
+<!-- <button class="disable" on:click={() => disabled = !disabled}>disable</button> -->
+<!-- <div class='col'>
+    <p>This is an example of how you can do smooth transitions. It uses canvas so you can do a few thousand elements. Instead of the buttons triggering which step is in view, you can use the scroll ...  </p>
+    <Button on:click={() => otherStep = 0} outlined>
+        Arrange like so
+    </Button>
+    <Button on:click={() => otherStep = 1} outlined>
+        Rearrange again
+    </Button>
+</div>
+<ScatterCanvas
+    data={otherPoints}
+    layout='wide'
+    step={otherStep}
+    mark='circle'
+/> -->
+
 <!-- PARALLAX TEMPLATE -->
-<!-- <Parallax
+<Parallax
   sections="3"
   style="background-color: #253237;"
   {disabled}
@@ -493,7 +342,7 @@ background: linear-gradient(180deg, rgba(166,237,231,1) 0%, rgba(0,40,105,1) 75%
       tabindex="0"
     />
   </ParallaxLayer>
-</Parallax> -->
+</Parallax>
 
 <!-- CSS & STYLES -->
 <style>
@@ -520,10 +369,10 @@ background: linear-gradient(180deg, rgba(166,237,231,1) 0%, rgba(0,40,105,1) 75%
   .clients-main:focus-visible {
     outline: 2px dotted blue;
   }
-
+  
   div#preload {
     display: none;
-  }
+}
 
   .hero {
     margin: auto;
@@ -571,7 +420,7 @@ background: linear-gradient(180deg, rgba(166,237,231,1) 0%, rgba(0,40,105,1) 75%
   p.date {
     font-size: 16px;
     line-height: 24px;
-    padding-top: 8px;
+    padding-top: 16px;
     color: #c5cae9;
     margin: auto;
     text-align: center;
