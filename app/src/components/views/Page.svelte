@@ -79,8 +79,8 @@
     consistently dominated by mental health issues.
   </p>
   <img
-    src="https://github.com/sarachodosh/mvtec-google-workshop/raw/santiago/app/src/img/circlePacking.png"
-    alt="heatMapA"
+    src="img/circlePacking.png"
+    alt="circle"
     width="100%"
     height="auto"
   />
@@ -113,8 +113,8 @@
     Perhaps no topic has been of as much interest, though, as depression.
   </p>
   <img
-    src="https://github.com/sarachodosh/mvtec-google-workshop/raw/santiago/app/src/img/joyPlot3.png"
-    alt="heatMapA"
+    src="img/joyPlot3.png"
+    alt="joyPlot"
     width="100%"
     height="auto"
   />
@@ -142,14 +142,14 @@
     searching for help about the same things.
   </p>
   <img
-    src="https://github.com/sarachodosh/mvtec-google-workshop/raw/santiago/app/src/img/heatMapA.png"
+    src="img/heatMapA.png"
     alt="heatMapA"
     width="100%"
     height="auto"
   />
   <img
-    src="https://github.com/sarachodosh/mvtec-google-workshop/raw/santiago/app/src/img/heatMapB.png"
-    alt="heatMapA"
+    src="img/heatMapB.png"
+    alt="heatMapB"
     width="100%"
     height="auto"
   />
@@ -380,7 +380,7 @@
     left: 0px;
     top: 57px;
     overflow-x: scroll;
-    background-image: url("img/heroBackground.png");
+    background-image: url("https://github.com/sarachodosh/mvtec-google-workshop/raw/santiago/app/public/img/heroBackground.png");
   }
 
   .heroText {
