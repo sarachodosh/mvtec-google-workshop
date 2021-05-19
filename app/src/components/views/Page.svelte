@@ -374,13 +374,14 @@
     outline: 2px dotted blue;
   }
   .hero {
+    margin: auto;
     position: static;
     width: 1440px;
     height: 1496px;
     left: 0px;
     top: 57px;
     overflow-x: scroll;
-    background-image: url("https://github.com/sarachodosh/mvtec-google-workshop/raw/santiago/app/public/img/heroBackground.png");
+    background-image: url("https://github.com/sarachodosh/mvtec-google-workshop/raw/santiago/app/public/img/heroBackground.svg");
   }
 
   .heroText {
