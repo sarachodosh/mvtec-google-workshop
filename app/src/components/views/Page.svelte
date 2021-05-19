@@ -25,18 +25,31 @@
 </script>
 
 <!-- HERO -->
-<div class="hero"></div>
+<div class="hero">
+  <div class="heroText">
+    <!-- Headline without animation -->
+    <!-- <p class="headline1">
+      How we ask Google for <span style="color:#ED715D">help?</span>
+    </p> -->
 
-<div class="heroText">
-  <p class="headline1">How we ask Google for help?</p>
-  <p class="author">
-    By <span style="font-weight:600">Sara Chodosh, Xavier Bolló</span> and
-    <span style="font-weight:600">Santiago Salcido</span>
-  </p>
-  <p class="date">May 19, 2021</p>
+    <div class="typewriter">
+      <h1>
+        How we ask Google for <span style="color:#ED715D">help?</span>
+      </h1>
+    </div>
+
+
+
+    <p class="author">
+      By <span style="font-weight:600">Xavier Bolló, Sara Chodosh</span> and
+      <span style="font-weight:600">Santiago Salcido</span>
+    </p>
+    <p class="date">May 19, 2021</p>
+  </div>
 </div>
 
-<p align="center">
+<!-- OLD IDEA with the search bar, erase before final commit -->
+<!-- <p align="center">
   <img
     src="https://github.com/sarachodosh/mvtec-google-workshop/raw/santiago/app/src/img/searchImg.png"
     alt="search"
@@ -46,7 +59,7 @@
     padding-bottom: 60px;
 "
   />
-</p>
+</p> -->
 
 <!-- CONTENT -->
 <div class="contentWrapper">
@@ -78,12 +91,7 @@
     Searches for “how to help _____” or “how to help someone with _____” are
     consistently dominated by mental health issues.
   </p>
-  <img
-    src="img/circlePacking.png"
-    alt="circle"
-    width="100%"
-    height="auto"
-  />
+  <img src="img/circlePacking.png" alt="circle" width="100%" height="auto" />
 </div>
 <!-- <p align="center">
   <iframe
@@ -112,12 +120,7 @@
     management, and anxiety, to name a few. Others have seen a steady rise.
     Perhaps no topic has been of as much interest, though, as depression.
   </p>
-  <img
-    src="img/joyPlot3.png"
-    alt="joyPlot"
-    width="100%"
-    height="auto"
-  />
+  <img src="img/joyPlot3.png" alt="joyPlot" width="100%" height="auto" />
 </div>
 <!-- <p align="center">
   <iframe
@@ -141,18 +144,8 @@
     anything, it should be that we need to lean on each other—we’re all
     searching for help about the same things.
   </p>
-  <img
-    src="img/heatMapA.png"
-    alt="heatMapA"
-    width="100%"
-    height="auto"
-  />
-  <img
-    src="img/heatMapB.png"
-    alt="heatMapB"
-    width="100%"
-    height="auto"
-  />
+  <img src="img/heatMapA.png" alt="heatMapA" width="100%" height="auto" />
+  <img src="img/heatMapB.png" alt="heatMapB" width="100%" height="auto" />
   <p />
 </div>
 
@@ -376,17 +369,17 @@
   .hero {
     margin: auto;
     position: static;
-    width: 1440px;
+    max-width: 1440px;
     height: 1496px;
-    left: 0px;
-    top: 57px;
-    overflow-x: scroll;
+    overflow-x: visible;
+    background-size: cover;
+    background-position: center top;
     background-image: url("https://github.com/sarachodosh/mvtec-google-workshop/raw/santiago/app/public/img/heroBackground.svg");
   }
 
   .heroText {
     max-width: 680px;
-    /* padding-top: 144px; */
+    padding-top: 120px;
     margin: auto;
     position: static;
     height: 500px;
@@ -396,19 +389,23 @@
   }
 
   .headline1 {
-    max-width: 680px;
-    position: static;
-    height: 192px;
-    /*  left: 0px;
-    right: 0px; */
-    top: 0px;
     font-family: Nunito;
     font-style: normal;
     font-weight: 800;
     font-size: 72px;
     line-height: 96px;
-    display: flex;
-    /* align-items: flex-end; */
+    color: #ffffff;
+    letter-spacing: -1px;
+    font-feature-settings: "pnum" on, "lnum" on;
+  }
+
+  h1 {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 72px;
+    line-height: 96px;
+    color: #ffffff;
     letter-spacing: -1px;
     font-feature-settings: "pnum" on, "lnum" on;
   }
@@ -416,14 +413,15 @@
   p.author {
     font-size: 18px;
     line-height: 24px;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
+    color: #ffffff;
   }
 
   p.date {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 24px;
     margin-top: 4px;
-    color: #858585;
+    color: #c5cae9;
   }
 
   p {
@@ -461,5 +459,44 @@
     border-top: 2px solid #bdbdbd;
     padding-top: 32px;
     font-family: "Nunito";
+  }
+
+  /* Typing animation */
+  .typewriter h1 {
+    color: #f1f1f1;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: 0.15em solid #ed715d; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: -0.02em; /* Adjust as needed */
+    animation: typing 2.5s steps(30, end), blink-caret 0.5s step-end infinite;
+  }
+
+  /* The typing effect */
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: #ed715d;
+    }
+  }
+
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+    .hero {
+      width: 100%;
+    }
   }
 </style>
