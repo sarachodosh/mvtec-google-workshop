@@ -1,8 +1,7 @@
+<!-- scripts and imports -->
 <script>
   import { Parallax, ParallaxLayer } from "svelte-parallax";
-
   import ScatterCanvas from "../charts/ScatterCanvas.svelte";
-
   import { Button, ButtonGroup, ButtonGroupItem } from "svelte-materialify";
 
   let parallax;
@@ -26,7 +25,9 @@
 </script>
 
 <!-- HERO -->
-<div class="hero">
+<div class="hero"></div>
+
+<div class="heroText">
   <p class="headline1">How we ask Google for help?</p>
   <p class="author">
     By <span style="font-weight:600">Sara Chodosh, Xavier Bolló</span> and
@@ -47,15 +48,24 @@
   />
 </p>
 
+<!-- CONTENT -->
 <div class="contentWrapper">
   <p class="lead">
-    Asking for help is one of the hardest things to do. But asking Google is easy.
+    Asking for help is one of the hardest things to do. But asking Google is
+    easy.
   </p>
   <p class="lead">
-    Over the years, we’ve asked Google for help with a lot of things—about bees, for example, but also hoarding and floods—and the beauty of the resulting data is that it reveals what we are most private about asking. To reach out to a friend to get help with alcoholism or to offer support for someone struggling with grief is to be vulnerable. What you ask Google stays between you and Google. 
+    Over the years, we’ve asked Google for help with a lot of things—about bees,
+    for example, but also hoarding and floods—and the beauty of the resulting
+    data is that it reveals what we are most private about asking. To reach out
+    to a friend to get help with alcoholism or to offer support for someone
+    struggling with grief is to be vulnerable. What you ask Google stays between
+    you and Google.
   </p>
   <p>
-    In the midst of the pandemic, conversations about mental health have emerged in the media. But Google Trends data shows that we were always dealing with these issues—it’s just that no one was talking to each other about it. 
+    In the midst of the pandemic, conversations about mental health have emerged
+    in the media. But Google Trends data shows that we were always dealing with
+    these issues—it’s just that no one was talking to each other about it.
   </p>
 </div>
 
@@ -65,39 +75,11 @@
     <h2>Mental health issues dominate searches</h2>
   </div>
   <p>
-    Searches for “how to help _____” or “how to help someone with _____” are consistently dominated by mental health issues. 
+    Searches for “how to help _____” or “how to help someone with _____” are
+    consistently dominated by mental health issues.
   </p>
   <img
-src="https://github.com/sarachodosh/mvtec-google-workshop/raw/santiago/app/src/img/circlePacking.png"
-alt="heatMapA"
-width="100%"
-height="auto"
-/>
-</div>
-<!-- <p align="center">
-  <iframe
-    width="70%"
-    height="382"
-    frameborder="0"
-    src="https://observablehq.com/embed/@sechodosh/google-trends?cells=beeswarm"
-    style="align=center"
-  />
-</p> -->
-
-
-<!-- CHART 2 -->
-<div class="contentWrapper">
-  <div class="sectionsComp">
-    <h2>Sudden tragedies draw our attention, but not for long</h2>
-  </div>
-  <p>
-    There are blips where natural disasters strike—a flood, a hurricane—or during political upheaval and other crises. But these abstract tragedies don’t capture our attention for long. Their peaks rise and fall again quickly. Meanwhile, interest in the everyday tragedies that strike us and our loved ones, from depression to anorexia, stays fairly high.
-  </p>
-  <p>
-    Interest in some of these has risen sharply in the last year—rape, anger management, and anxiety, to name a few. Others have seen a steady rise. Perhaps no topic has been of as much interest, though, as depression.
-  </p>
-  <img
-    src="https://github.com/sarachodosh/mvtec-google-workshop/raw/santiago/app/src/img/joyPlot2.png"
+    src="https://github.com/sarachodosh/mvtec-google-workshop/raw/santiago/app/src/img/circlePacking.png"
     alt="heatMapA"
     width="100%"
     height="auto"
@@ -113,6 +95,39 @@ height="auto"
   />
 </p> -->
 
+<!-- CHART 2 -->
+<div class="contentWrapper">
+  <div class="sectionsComp">
+    <h2>Sudden tragedies draw our attention, but not for long</h2>
+  </div>
+  <p>
+    There are blips where natural disasters strike—a flood, a hurricane—or
+    during political upheaval and other crises. But these abstract tragedies
+    don’t capture our attention for long. Their peaks rise and fall again
+    quickly. Meanwhile, interest in the everyday tragedies that strike us and
+    our loved ones, from depression to anorexia, stays fairly high.
+  </p>
+  <p>
+    Interest in some of these has risen sharply in the last year—rape, anger
+    management, and anxiety, to name a few. Others have seen a steady rise.
+    Perhaps no topic has been of as much interest, though, as depression.
+  </p>
+  <img
+    src="https://github.com/sarachodosh/mvtec-google-workshop/raw/santiago/app/src/img/joyPlot3.png"
+    alt="heatMapA"
+    width="100%"
+    height="auto"
+  />
+</div>
+<!-- <p align="center">
+  <iframe
+    width="70%"
+    height="382"
+    frameborder="0"
+    src="https://observablehq.com/embed/@sechodosh/google-trends?cells=beeswarm"
+    style="align=center"
+  />
+</p> -->
 
 <!-- CHART 3 -->
 <div class="contentWrapper">
@@ -120,7 +135,11 @@ height="auto"
     <h2>Depression is consistently one of our top concerns</h2>
   </div>
   <p>
-    It took a global pandemic to overtake the top spot from depression, and even the interest in that waned fairly quickly. For now, these searches are between us and the Google search bar. But if the coronavirus teaches us anything, it should be that we need to lean on each other—we’re all searching for help about the same things.
+    It took a global pandemic to overtake the top spot from depression, and even
+    the interest in that waned fairly quickly. For now, these searches are
+    between us and the Google search bar. But if the coronavirus teaches us
+    anything, it should be that we need to lean on each other—we’re all
+    searching for help about the same things.
   </p>
   <img
     src="https://github.com/sarachodosh/mvtec-google-workshop/raw/santiago/app/src/img/heatMapA.png"
@@ -134,11 +153,13 @@ height="auto"
     width="100%"
     height="auto"
   />
-  <p>
-    
-  </p>
+  <p />
 </div>
 
+<!-- TEST import local images -->
+<img src="img/circlePacking.png" alt="background image" />
+
+<!-- ASK XAVI IF I CAN ERASE THIS -->
 <!-- <button class="disable" on:click={() => disabled = !disabled}>disable</button> -->
 <!-- <div class='col'>
     <p>This is an example of how you can do smooth transitions. It uses canvas so you can do a few thousand elements. Instead of the buttons triggering which step is in view, you can use the scroll ...  </p>
@@ -155,6 +176,8 @@ height="auto"
     step={otherStep}
     mark='circle'
 /> -->
+
+<!-- PARALLAX TEMPLATE -->
 <Parallax
   sections="3"
   style="background-color: #253237;"
@@ -325,6 +348,7 @@ height="auto"
   </ParallaxLayer>
 </Parallax>
 
+<!-- CSS & STYLE -->
 <style>
   :global(body) {
     padding: 0;
@@ -350,18 +374,24 @@ height="auto"
     outline: 2px dotted blue;
   }
   .hero {
+    position: static;
+    width: 1440px;
+    height: 1496px;
+    left: 0px;
+    top: 57px;
+    overflow-x: scroll;
+    background-image: url("img/heroBackground.png");
+  }
+
+  .heroText {
     max-width: 680px;
-    padding-top: 144px;
-    /* padding-bottom: 288px; */
+    /* padding-top: 144px; */
     margin: auto;
     position: static;
-    /* width: 1440px; */
     height: 500px;
     left: 0px;
     top: 57px;
     overflow-x: scroll;
-    /* background: #fcfcfc; */
-    /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
   }
 
   .headline1 {
@@ -401,8 +431,10 @@ height="auto"
   }
 
   .contentWrapper {
-    max-width: 680px;
+    max-width: 776px;
     margin: auto;
+    padding: 48px;
+    background-color: #ffffff;
   }
 
   .lead {
