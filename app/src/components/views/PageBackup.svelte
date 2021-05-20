@@ -440,7 +440,7 @@
   }
 
   .lead {
-    font-family: Nunito;
+    font-family: 'Nunito', sans-serif;
     font-style: normal;
     font-weight: 800;
     font-size: 24px;
@@ -462,14 +462,14 @@
     /* font-size: 48px; */
     border-top: 2px solid #bdbdbd;
     padding-top: 32px;
-    font-family: "Nunito";
+    font-family: 'Nunito', sans-serif;
   }
 
   /* Typing animation */
   .typewriter p {
     color: #f1f1f1;
     font-size: 64px;
-    font-family: Nunito;
+    font-family: 'Nunito', sans-serif;
     overflow: hidden; /* Ensures the content is not revealed until the animation */
     border-right: 0.15em solid #ed715d; /* The typwriter cursor */
     white-space: nowrap; /* Keeps the content on a single line */

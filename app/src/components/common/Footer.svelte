@@ -41,8 +41,9 @@
 </div>
 	
 <style>
+    
     .footer {
-        background-color:#284385;
+        background-color:#002869;
         color:#FFF;
         padding-top:5rem;
     }

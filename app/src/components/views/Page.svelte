@@ -60,34 +60,18 @@
     Asking for help is one of the hardest things to do. But asking Google is
     easy.
   </p>
-  <p class="lead">
-    Over the years, we’ve asked Google for help with a lot of things—about bees,
-    for example, but also hoarding and floods—and the beauty of the resulting
-    data is that it reveals what we are most private about asking. To reach out
-    to a friend to get help with alcoholism or to offer support for someone
-    struggling with grief is to be vulnerable. What you ask Google stays between
-    you and Google.
-  </p>
-  <p>
-    In the midst of the pandemic, conversations about mental health have emerged
-    in the media. But Google Trends data shows that we were always dealing with
-    these issues—it’s just that no one was talking to each other about it.
-  </p>
 </div> -->
 
-<!-- PARALLAX TEST -->
+<!-- PARALLAX SLIDES -->
 
 <Parallax
   sections="2"
   style="background-color: 
-  
-  background: rgb(166,237,231);
-background: linear-gradient(180deg, rgba(166,237,231,1) 0%, rgba(0,40,105,1) 75%);
-  
-  "
-    bind:this={parallax}
+  background: rgb(197,202,233);
+background: linear-gradient(180deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 70%);"
+  bind:this={parallax}
 >
-  <ParallaxLayer offset="1" rate="1" style="background-color: #cc0000;" />
+  <ParallaxLayer offset="1" rate="1" style="background-color: #002869;" />
   <ParallaxLayer offset="2" rate="1" style="background-color: #87BCDE;" />
 
   <ParallaxLayer
@@ -97,72 +81,55 @@ background: linear-gradient(180deg, rgba(166,237,231,1) 0%, rgba(0,40,105,1) 75%
     style="background-image: {url('stars', true)}; background-size: cover;"
   />
   <ParallaxLayer offset="0.3" rate=".5" span="1">
-    <div class="contentWrapper">
-      <p class="lead">
+    <div class="textBox">
+      <p class="pTextBox">
+        Asking for help is one of the <b>hardest</b> things to do. But asking Google
+        is easy.
+      </p>
+    </div>
+  </ParallaxLayer>
+
+  <ParallaxLayer offset=".9" rate=".5" span="1">
+    <div class="textBox">
+      <p class="pTextBox">
         Over the years, we’ve asked Google for help with a lot of things—about
-        bees, for example, but also hoarding and floods—and the beauty of the
-        resulting data is that it reveals what we are most private about asking.
-        To reach out to a friend to get help with alcoholism or to offer support
-        for someone struggling with grief is to be vulnerable. What you ask
-        Google stays between you and Google.
+        <b>bees</b>, for example, but also hoarding and floods—and the beauty of
+        the resulting data is that it reveals what we are most private about
+        asking. To reach out to a friend to get help with alcoholism or to offer
+        support for someone struggling with grief is to be vulnerable. What you
+        ask Google stays between you and Google.
       </p>
     </div>
   </ParallaxLayer>
 
-  <ParallaxLayer offset="1" rate=".5" span="1">
-    <div class="contentWrapper">
+  <ParallaxLayer offset="1.2" rate="-0.1" style="opacity: 0.4;">
+    <img
+      src={url("bee1.svg")}
+      alt=""
+      style="display: block; width: 20%; margin-left: 60%;"
+    />
+    <img
+      src={url("cloud")}
+      alt=""
+      style="display: block; width: 25%; margin-left: 30%;"
+    />
+    <img
+      src={url("cloud")}
+      alt=""
+      style="display: block; width: 10%; margin-left: 80%;"
+    />
+  </ParallaxLayer>
+
+  <ParallaxLayer offset="1.3" rate=".5" span="1">
+    <div class="textBox">
       <p class="lead">
-        In the midst of the pandemic, conversations about mental health have emerged in the media. But Google Trends data shows that we were always dealing with these issues—it’s just that no one was talking to each other about it.
+        In the midst of the pandemic, conversations about mental health have
+        emerged in the media. But Google Trends data shows that we were always
+        dealing with these issues—it’s just that no one was talking to each
+        other about it.
       </p>
     </div>
   </ParallaxLayer>
-
-  <!-- <ParallaxLayer offset="1.3" rate="-0.3">
-    <img
-      src={"https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/gradma_wanr.svg"}
-      alt=""
-      style="width: 15%; margin-left: 70%;"
-    />
-  </ParallaxLayer> -->
-
-  <!-- <ParallaxLayer offset="1" rate="0.8" style="opacity: 0.1;">
-    <img
-      src={url("cloud")}
-      alt=""
-      style="display: block; width: 20%; margin-left: 55%;"
-    />
-    <img
-      src={url("cloud")}
-      alt=""
-      style="display: block; width: 10%; margin-left: 15%;"
-    />
-  </ParallaxLayer> -->
-
-  <!-- <ParallaxLayer offset="1.75" rate="0.5" style="opacity: 0.1;">
-    <img
-      src={url("cloud")}
-      alt=""
-      style="display: block; width: 20%; margin-left: 70%;"
-    />
-    <img
-      src={url("cloud")}
-      alt=""
-      style="display: block; width: 20%; margin-left: 40%;"
-    />
-  </ParallaxLayer> -->
-
-  <!-- <ParallaxLayer offset="1" rate="0.2" style="opacity: 0.2;">
-    <img
-      src={url("cloud")}
-      alt=""
-      style="display: block; width: 10%; margin-left: 10%;"
-    />
-    <img
-      src={url("cloud")}
-      alt=""
-      style="display: block; width: 20%; margin-left: 75%;"
-    />
-  </ParallaxLayer> -->
 
   <ParallaxLayer offset="1.6" rate="-0.1" style="opacity: 0.4;">
     <img
@@ -194,67 +161,6 @@ background: linear-gradient(180deg, rgba(166,237,231,1) 0%, rgba(0,40,105,1) 75%
       style="display: block; width: 15%; margin-left: 75%;"
     />
   </ParallaxLayer>
-
-  <!-- <ParallaxLayer
-    offset="2.5"
-    rate="-0.4"
-    style="display: flex; align-items: center; justify-content: center;"
-  >
-    <img src={url("earth")} alt="" style="width: 60%;" />
-  </ParallaxLayer> -->
-
-  <!-- <ParallaxLayer
-    offset="2"
-    rate="-0.3"
-    style="display: flex; align-items: center; justify-content: center;"
-  >
-    <img
-      src={"https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/empty_street_sfxm.svg"}
-      alt=""
-      style="width: 50%;"
-    />
-  </ParallaxLayer> -->
-
-  <!-- <ParallaxLayer
-    offset="0"
-    rate="0.1"
-    style="display: flex; align-items: center; justify-content: center;"
-  >
-    <img
-      src={"https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/creative_thinking_b3bc.svg"}
-      alt=""
-      class="server"
-      style="width: 20%;"
-      on:click={() => parallax.scrollTo(2, { selector: ".bash" })}
-      on:keyup={(e) =>
-        e.key === "Enter" && parallax.scrollTo(2, { selector: ".bash" })}
-      tabindex="0"
-    />
-  </ParallaxLayer> -->
-
-  <!--   <ParallaxLayer
-    offset="1"
-    rate="0.1"
-    style="display: flex; align-items: center; justify-content: center;"
-  >
-    <img
-      src={"https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/fall_thyk.svg"}
-      alt=""
-      class="bash"
-      style="width: 40%;"
-      on:click={() => parallax.scrollTo(3, { selector: ".clients-main" })}
-      on:keyup={(e) =>
-        e.key === "Enter" &&
-        parallax.scrollTo(3, { selector: ".clients-main" })}
-      tabindex="0"
-    />
-  </ParallaxLayer> -->
-
-  <!-- <ParallaxLayer
-    offset="2"
-    rate="-0"
-    style="display: flex; align-items: center; justify-content: center;"
-  />-->
 </Parallax>
 
 <!-- CHART 1 -->
@@ -521,7 +427,7 @@ background: linear-gradient(180deg, rgba(166,237,231,1) 0%, rgba(0,40,105,1) 75%
     outline: 2px dotted blue;
   }
 
-  div#preload {
+  #preload {
     display: none;
   }
 
@@ -532,7 +438,7 @@ background: linear-gradient(180deg, rgba(166,237,231,1) 0%, rgba(0,40,105,1) 75%
     height: 1400px;
     overflow-x: visible;
     background-size: cover;
-    background-position: center -80px;
+    background-position: center -40px;
     background-image: url("https://github.com/sarachodosh/mvtec-google-workshop/raw/santiago/app/public/img/heroBackground.svg");
   }
 
@@ -546,17 +452,6 @@ background: linear-gradient(180deg, rgba(166,237,231,1) 0%, rgba(0,40,105,1) 75%
     top: 57px;
     overflow-x: scroll;
   }
-
-  /* .headline1 {
-    font-family: Nunito;
-    font-style: normal;
-    font-weight: 800;
-    font-size: 72px;
-    line-height: 96px;
-    color: #ffffff;
-    letter-spacing: -1px;
-    font-feature-settings: "pnum" on, "lnum" on;
-  } */
 
   p.author {
     font-size: 18px;
@@ -590,13 +485,32 @@ background: linear-gradient(180deg, rgba(166,237,231,1) 0%, rgba(0,40,105,1) 75%
     background-color: #ffffff;
   }
 
+  .textBox {
+    max-width: 776px;
+    margin: auto;
+    padding: 48px;
+    background-color: #ffffff;
+    box-shadow: 0px 8px 0px #002869;
+  }
+
+  .pTextBox {
+    font-family: "Nunito", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 160%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
   .lead {
-    font-family: Nunito;
+    font-family: "Nunito", sans-serif;
     font-style: normal;
     font-weight: 800;
     font-size: 24px;
     line-height: 160%;
     margin-top: 0px;
+    margin-bottom: 0px;
   }
   .sectionsComp {
     justify-content: left;
@@ -613,14 +527,15 @@ background: linear-gradient(180deg, rgba(166,237,231,1) 0%, rgba(0,40,105,1) 75%
     /* font-size: 48px; */
     border-top: 2px solid #bdbdbd;
     padding-top: 32px;
-    font-family: "Nunito";
+    font-family: "Nunito", sans-serif;
   }
 
   /* Typing animation */
   .typewriter p {
     color: #f1f1f1;
     font-size: 64px;
-    font-family: Nunito;
+    font-family: "Nunito", sans-serif;
+    font-weight: 800;
     overflow: hidden; /* Ensures the content is not revealed until the animation */
     border-right: 0.15em solid #ed715d; /* The typwriter cursor */
     white-space: nowrap; /* Keeps the content on a single line */
