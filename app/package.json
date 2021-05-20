@@ -13,6 +13,7 @@
     "@rollup/plugin-dsv": "^2.0.1",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^10.0.0",
+    
     "focus-visible": "^5.2.0",
     "rollup": "^2.3.4",
     "rollup-plugin-css-only": "^3.1.0",
@@ -37,6 +38,7 @@
     "d3-scale": "^3.2.3",
     "d3-scale-chromatic": "^2.0.0",
     "d3-shape": "^2.1.0",
+    "d3-force": "^2.1.1",
     "d3-time-format": "^3.0.0",
     "layercake": "^4.1.0",
     "lodash": "^4.17.20",
