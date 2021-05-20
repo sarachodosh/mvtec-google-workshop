@@ -23,31 +23,42 @@
     import dataG from '../data/dataG.csv';
     import { curveCatmullRom } from 'd3-shape';
 
+
     // For beeswarm
 	const xKey = 'dateNum'; // NEED TO CHANGE THIS TO dateNum!
     const zKey = 'category';
     const rKey = 'value';
 	const r = 12;
 
+
     const colors = ['#ec4977', '#ff9063', '#ffd577', '#baf29d', '#00dcd5', '#0cb4f5'];
+
+
 
 </script>
 
+<Beeswarm 
+    data={dataB}
+/>
 
+<CirclePacking
+    data={dataG}
+/>
 
 <!-- <Joyplot
     data={dataB}
     options={
         {
 			curve: curveCatmullRom,
-            layout: 'col',
-            format: format
+            layout: 'col'
         }
     }
 />
+
 <CirclePacking
     data={dataG}
 /> -->
+
 
 <Beeswarm 
     data={dataA}

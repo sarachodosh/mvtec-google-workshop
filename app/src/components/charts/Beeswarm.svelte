@@ -67,12 +67,14 @@
             simulation.tick();
         }
 	}
+
 </script>
 
 <div class='graphic' bind:clientWidth={width} bind:clientHeight={height}>
     {#if width}
     <svg xmlns:svg='https://www.w3.org/2000/svg' 
         viewBox='0 0 {width} {height}'
+
         {width}
         {height}
         role='img'
@@ -96,3 +98,4 @@
     {/if}     
 </div>
     
+
