@@ -34,7 +34,7 @@
     // }
 
     export let r = 12;
-    export let xStrength = 1;
+    export let xStrength = 0.5;
     export let yStrength = 0.1;
     export let strokeWidth = 0;
     export let strokeColor = '#fff';

@@ -37,15 +37,8 @@
 
 </script>
 
-<Beeswarm 
-    data={dataB}
-/>
 
-<CirclePacking
-    data={dataG}
-/>
-
-<!-- <Joyplot
+<Joyplot
     data={dataB}
     options={
         {
@@ -57,14 +50,14 @@
 
 <CirclePacking
     data={dataG}
-/> -->
+/>
 
 
 <Beeswarm 
     data={dataA}
     xKey={xKey}
     rKey={rKey}
-    rThreshold={4}
+    rThreshold={1}
     zKey={zKey}
     strokeWidth={0}
     colors={colors}
