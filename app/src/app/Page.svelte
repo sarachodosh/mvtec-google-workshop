@@ -1,15 +1,14 @@
 <script>
-
-
     import Joyplot from '../components/charts/Joyplot.svelte';
     import CirclePacking from '../components/charts/CirclePacking.svelte';
 
     import { format, precisionFixed } from 'd3-format';
 
-	import dataB from '../data/dataB_long.csv';
+	  import dataB from '../data/dataB_long.csv';
     import dataA from '../data/dataA_long.csv';
     import dataG from '../data/dataG.csv';
     import { curveCatmullRom } from 'd3-shape';
+
 
 
     import { Parallax, ParallaxLayer } from "svelte-parallax";
