@@ -2,6 +2,7 @@
 	import { pack, hierarchy } from 'd3-hierarchy'
 	import { group } from 'd3-array'
     import Tooltip from '../common/Tooltip.svelte'
+import { detach_dev } from 'svelte/internal';
 	
 	// import { getContext } from 'svelte';
 
@@ -46,13 +47,12 @@
 
     $: descendants = packed.descendants();
 
-
-  const colors = ['#EC4977', '#FF9063', '#FFD577', '#BAF29D', '#00DCD5', '#0CB4F5']
-  const terms = ['mental health', 'location', 'climate', 'social problem', 'health', 'natural disaster']
-  $: descendants.forEach(d => {
-    d.depth === 0 ? d.color = 'lightgray' :
-                d.depth === 1 ? d.color = colors[terms.indexOf(d.data[0])] :
-                d.color = colors[terms.indexOf(d.data.category)]
+    const colors = ['#EC4977', '#FF9063', '#FFD577', '#BAF29D', '#00DCD5', '#0CB4F5']
+    const terms = ['mental health', 'location', 'climate', 'social problem', 'health', 'natural disaster']
+    $: descendants.forEach(d => {
+        d.depth === 0 ? d.color = 'lightgray' :
+                    d.depth === 1 ? d.color = colors[terms.indexOf(d.data[0])] :
+                    d.color = colors[terms.indexOf(d.data.category)]
   });
 
 	
@@ -68,8 +68,9 @@
     {height}
     role='img'
     aria-labelledby='title desc'
-    >
+>
 	<g>
+    <!-- create circles -->
     {#each descendants as d}
         <circle 
             stroke={d.color}
@@ -80,16 +81,51 @@
             fill={d.color}
             opacity={d.height === 0 ? '0.8' : '0.4'}
         />
-
+    {/each}
+    <!-- create circle labels (groups excluded) -->
+    {#each descendants.filter(d=>!d.children) as d}
+        {#if d.r > 30}
             <text                 
-                x={d.x- (d.r/2)}
+                x={d.x}
                 y={d.y}
-                style="font-size:12px ; font-weight: 300;"
-                 
+                fill="white"
+                style="font-size:13px ; font-weight: 600;"
+                dominant-baseline="middle" 
+                text-anchor="middle"                 
                 > 
                     {d.data.term}
-            </text>
+            </text>        
+        {:else if d.r > 16 || d.data.term === 'Bees'}
+            <text                 
+                x={d.x}
+                y={d.y}
+                fill="white"
+                style="font-size:10px ; font-weight: 300; "
+                dominant-baseline="middle" 
+                text-anchor="middle"
+            > 
+                {d.data.term}
+            </text>  
+        {/if}
+    {/each}
+    <!-- create group labels -->
+    {#each descendants.filter(d=>d.children) as d}
         
+            <text
+                x={d.x-15}
+                y={d.y}
+                dy={-d.r}         
+                fill={d.color}
+                style="font-size:25px ; font-weight: 900;  text-shadow: 1px 1px 1px #fff,3px 3px 14px {d.color};"
+                stroke-width="0px"
+                stroke="{d.color}"
+                stroke-opacity="0.5"   
+                dominant-baseline="middle" 
+                text-anchor="middle"    
+            > 
+                {d.data[0] !== undefined?d.data[0]:''}
+            </text>  
+
     {/each}
     <g>
 </svg>   
@@ -98,5 +134,7 @@
 </div>
 
 <style>
-    
+    svg {
+        font-family:"Nunito";
+    }
 </style>
