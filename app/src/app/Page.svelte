@@ -22,20 +22,20 @@
     import dataA from '../data/dataA_long.csv';
     import dataG from '../data/dataG.csv';
     import { curveCatmullRom } from 'd3-shape';
-    
-    // For beeswarm
-	// const xKey = 'dateNum'; // NEED TO CHANGE THIS TO dateNum!
-    // const zKey = 'category';
-    // const rKey = 'value';
-	// const r = 4;
 
-    // const colors = ['#ec4977', '#ff9063', '#ffd577', '#baf29d', '#00dcd5', '#0cb4f5'];
+    // For beeswarm
+	const xKey = 'dateNum'; // NEED TO CHANGE THIS TO dateNum!
+    const zKey = 'category';
+    const rKey = 'value';
+	const r = 12;
+
+    const colors = ['#ec4977', '#ff9063', '#ffd577', '#baf29d', '#00dcd5', '#0cb4f5'];
 
 </script>
 
 
 
-<Joyplot
+<!-- <Joyplot
     data={dataB}
     options={
         {
@@ -47,29 +47,15 @@
 />
 <CirclePacking
     data={dataG}
+/> -->
+
+<Beeswarm 
+    data={dataA}
+    xKey={xKey}
+    rKey={rKey}
+    rThreshold={4}
+    zKey={zKey}
+    strokeWidth={0}
+    colors={colors}
+
 />
-
-
-
-<!-- <div class='chart-container'>
-    <LayerCake 
-        padding={{bottom: 15}}
-        x={xKey}
-        data={dataA}
-        z={zKey}
-        zScale={scaleOrdinal()}
-    >
-
-    <Svg>
-        <Beeswarm 
-            r={r}
-            strokeWidth={1}
-            xStrength={0.95}
-            yStrength={0.075}
-        />
-    </Svg>
-
-    </LayerCake>
-</div> -->
-
-
