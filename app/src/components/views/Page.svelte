@@ -1,8 +1,18 @@
 <!-- scripts and imports -->
 <script>
   import { Parallax, ParallaxLayer } from "svelte-parallax";
-  import ScatterCanvas from "../charts/ScatterCanvas.svelte";
-  import { Button, ButtonGroup, ButtonGroupItem } from "svelte-materialify";
+
+    import Joyplot from '../charts/Joyplot.svelte';
+    import CirclePacking from '../charts/CirclePacking.svelte';
+
+    import { format, precisionFixed } from 'd3-format';
+
+    import dataA from '../../data/dataA_long.csv';
+	  import dataB from '../../data/dataB_long.csv';
+    import dataG from '../../data/dataG.csv';
+    import { curveCatmullRom } from 'd3-shape';
+
+
 
   let parallax;
   let disabled = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -14,14 +24,7 @@
       wrap ? ")" : ""
     }`;
 
-  let scatterStep, otherStep;
 
-  const otherPoints = [...new Array(800)].map((d) => ({
-    coords: [
-      { x: Math.random() * 400, y: Math.random() * 400, r: Math.random() * 16 },
-      { x: Math.random() * 400, y: Math.random() * 400, r: Math.random() * 16 },
-    ],
-  }));
 </script>
 
 <!-- HERO -->
@@ -91,8 +94,11 @@
     Searches for “how to help _____” or “how to help someone with _____” are
     consistently dominated by mental health issues.
   </p>
-  <img src="img/circlePacking.png" alt="circle" width="100%" height="auto" />
+  <CirclePacking 
+    data={dataG}
+  />
 </div>
+
 <!-- <p align="center">
   <iframe
     width="70%"
@@ -120,7 +126,16 @@
     management, and anxiety, to name a few. Others have seen a steady rise.
     Perhaps no topic has been of as much interest, though, as depression.
   </p>
-  <img src="img/joyPlot3.png" alt="joyPlot" width="100%" height="auto" />
+  <Joyplot
+  data={dataB}
+  options={
+      {
+    curve: curveCatmullRom,
+          layout: 'col',
+          format: format
+      }
+  }
+/>
 </div>
 <!-- <p align="center">
   <iframe
@@ -150,7 +165,7 @@
 </div>
 
 <!-- TEST import local images -->
-<img src="img/circlePacking.png" alt="background image" />
+<!-- <img src="img/circlePacking.png" alt="background image" /> -->
 
 <!-- ASK XAVI IF I CAN ERASE THIS -->
 <!-- <button class="disable" on:click={() => disabled = !disabled}>disable</button> -->

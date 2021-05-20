@@ -3,7 +3,7 @@
 	import PointInteractive from '../common/PointInteractive.svelte';
 	import {line, area} from 'd3-shape';
     import {scaleTime, scaleLinear, scalePoint, scaleOrdinal} from 'd3-scale';
-    import {max, extent, groups} from 'd3-array'
+    import {max, extent, groupsm} from 'd3-array'
     import { Delaunay } from 'd3-delaunay'
     
     export let data;
@@ -67,11 +67,13 @@
     $: delaunay = Delaunay.from(data, d => x(d.date), d => y(d.value))
 
 	const mouseMove = (m) => {
-        const mX = (m.offsetX) ? m.offsetX : m.clientX;
-        const mY = (m.offsetY) ? m.offsetY : m.clientY;
-        const picked = delaunay.find(mX, mY);
-        datum = dataGrouped[picked];
-	}
+		const mX = (m.offsetX) ? m.offsetX : m.clientX;
+		const _data = [...data];
+		_data.sort((a,b) => a[x] - b[[x]]);
+		const index = x.invert(mX);
+		const i = bisector(d => d[key.x]).center(_data, index);
+		datum = _data[i];
+	}; console.log();
 
 	const leave = (m) => {
 		datum = null;
@@ -130,7 +132,7 @@
 	<!-- <Axis {width} {height} {margin} scale={y} position='left'/> -->
 	<!-- <Axis {width} {height} {margin} scale={x} position='bottom' format={format.x} /> -->
 
-	<!-- <PointInteractive {datum} {format} {x} {y} key={{x:'x', y:'y'}} {width} /> -->
+	<PointInteractive {datum} {format} {x} {y} key={{x:'x', y:'y'}} color='navy' {width} />
 	
 	<!-- transform='translate({d[2]*100}, 0)' -->
 
