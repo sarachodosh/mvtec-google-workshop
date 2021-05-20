@@ -93,32 +93,50 @@ background: linear-gradient(180deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 70%
     <div class="textBox">
       <p class="pTextBox">
         Over the years, we’ve asked Google for help with a lot of things—about
-        <b>bees</b>, for example, but also hoarding and floods—and the beauty of
+        <b>bees</b>, for example, but also <b>hoarding</b> and <b>floods</b>—and the beauty of
         the resulting data is that it reveals what we are most private about
         asking. To reach out to a friend to get help with alcoholism or to offer
-        support for someone struggling with grief is to be vulnerable. What you
-        ask Google stays between you and Google.
+        support for someone struggling with grief is to be vulnerable. <b>What you
+          ask Google stays between you and Google.</b>
       </p>
     </div>
   </ParallaxLayer>
 
-  <ParallaxLayer offset="1.2" rate="-0.1" style="opacity: 0.4;">
+  <ParallaxLayer
+    offset=".4"
+    rate="0.2"
+    style="display: flex; align-items: center; justify-content: center;"
+  >
     <img
-      src={url("bee1.svg")}
-      alt=""
-      style="display: block; width: 20%; margin-left: 60%;"
-    />
-    <img
-      src={url("cloud")}
-      alt=""
-      style="display: block; width: 25%; margin-left: 30%;"
-    />
-    <img
-      src={url("cloud")}
-      alt=""
-      style="display: block; width: 10%; margin-left: 80%;"
+      src={"https://github.com/sarachodosh/mvtec-google-workshop/raw/santiago/app/public/img/bee1.svg"}
+      alt="bee"
+      style="width: 15%; margin-right: 75%;"
     />
   </ParallaxLayer>
+
+  <ParallaxLayer
+    offset=".2"
+    rate="0.2"
+    style="display: flex; align-items: center; justify-content: center;"
+  >
+    <img
+      src={"https://github.com/sarachodosh/mvtec-google-workshop/raw/santiago/app/public/img/bee2.svg"}
+      alt="bee"
+      style="width: 8%; margin-left: 75%;"
+    />
+  </ParallaxLayer>
+
+  <ParallaxLayer
+  offset=".7"
+  rate="0.3"
+  style="display: flex; align-items: center; justify-content: center;"
+>
+  <img
+    src={"https://github.com/sarachodosh/mvtec-google-workshop/raw/santiago/app/public/img/bee2.svg"}
+    alt="bee"
+    style="width: 25%; margin-left: 50%;"
+  />
+</ParallaxLayer>
 
   <ParallaxLayer offset="1.3" rate=".5" span="1">
     <div class="textBox">
