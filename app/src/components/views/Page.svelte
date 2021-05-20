@@ -4,6 +4,7 @@
 
     import Joyplot from '../charts/Joyplot.svelte';
     import CirclePacking from '../charts/CirclePacking.svelte';
+    import Beeswarm from '../charts/Beeswarm.svelte';
 
     import { format, precisionFixed } from 'd3-format';
 
@@ -13,7 +14,16 @@
     import { curveCatmullRom } from 'd3-shape';
 
 
+  // for the beeswarm
+      // For beeswarm
+	  const xKey = 'dateNum'; // NEED TO CHANGE THIS TO dateNum!
+    const zKey = 'category';
+    const rKey = 'value';
+  	const colors = ['#ec4977', '#ff9063', '#ffd577', '#baf29d', '#00dcd5', '#0cb4f5'];
 
+
+
+  // for parallax
   let parallax;
   let disabled = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -238,16 +248,15 @@ background: linear-gradient(0deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 100%)
   }
 />
 </div>
-<!-- <p align="center">
-  <iframe
-    width="70%"
-    height="382"
-    frameborder="0"
-    src="https://observablehq.com/embed/@sechodosh/google-trends?cells=beeswarm"
-    style="align=center"
-  />
-</p> -->
-
+<Beeswarm 
+    data={dataA}
+    xKey={xKey}
+    rKey={rKey}
+    rThreshold={1}
+    zKey={zKey}
+    strokeWidth={0}
+    colors={colors}
+/>
 <!-- CHART 3 -->
 <div class="contentWrapper">
   <div class="sectionsComp">

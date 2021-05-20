@@ -3,7 +3,7 @@
 	import PointInteractive from '../common/PointInteractive.svelte';
 	import {line, area} from 'd3-shape';
     import {scaleTime, scaleLinear, scalePoint, scaleOrdinal} from 'd3-scale';
-    import {max, extent, groupsm} from 'd3-array'
+    import {max, extent, groups} from 'd3-array'
     import { Delaunay } from 'd3-delaunay'
     
     export let data;
