@@ -20,7 +20,7 @@
 			Data is based on Google Trends monthly indexes for 60 selected topics between 2016 and 2021. 
 		</div>
 		<div slot="team">
-			Xavier Bollo, Sara Chodosh and Santiago Salcido
+			Xavier Bolló, Sara Chodosh, Santiago Salcido
 		</div>
 	</Footer>
 </main>

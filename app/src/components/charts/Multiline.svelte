@@ -11,7 +11,6 @@
 	export let options;
 	let {key, format, color, layout, title, desc, curve } = options;
 
-<<<<<<< HEAD
 	let datum, width, height;
     
     const _data = key.y.map( (key, i) => data.map(d => ({x: d.time, y: d[key], key:key, color: color[i]} )))
@@ -36,14 +35,6 @@
         const mY = (m.offsetY) ? m.offsetY : m.clientY;
         const picked = delaunay.find(mX, mY);
         datum = _data.flat()[picked];
-=======
-<style>
-	.path-line {
-		fill: none;
-		stroke-linejoin: round;
-		stroke-linecap: round;
-		stroke-width: 1.5px;
->>>>>>> 94d518a81bc9ffb6ee588beb84b91f478db2fbce
 	}
 
 	const leave = (m) => {
