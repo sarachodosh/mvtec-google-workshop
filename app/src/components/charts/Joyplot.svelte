@@ -4,7 +4,9 @@
 	import Tooltip from '../common/Tooltip.svelte';
 	import {line, area} from 'd3-shape';
     import {scaleTime, scaleLinear, scalePoint, scaleOrdinal} from 'd3-scale';
-    import {max, extent, groups, bisector} from 'd3-array'
+    import {max, extent, groups, bisector, range, bisect} from 'd3-array'
+	import { timeParse, timeFormat } from 'd3-time-format';
+	
     import { Delaunay } from 'd3-delaunay'
     
     export let data;
@@ -17,7 +19,7 @@
 	data.forEach(date => date.date = new Date(date.month));
     data.forEach(value => value.value = +value.value);
     
-	
+	var formatMonthYear = timeFormat("%B %Y");
 	
 	const dataGrouped = groups(data, d => d.term);
 	
@@ -28,7 +30,7 @@
 	}
 
 	const overlap = 0.8;
-	const spacing = 25;
+	const spacing = 20;
 
 	var height = dataGrouped.length * spacing;
 
@@ -41,6 +43,8 @@
 	$: x = scaleTime()
 		.domain(extent(data, d => d.date))
 		.range([margin.left, width - margin.right]);
+	
+
 	
 	// $: y = scaleLinear()
 	// 	.domain([0, max(data, d => d.value)])
@@ -65,13 +69,44 @@
 		.y1(d => z(d.value))
 		.curve(curve)
 
+
+
     /* $: delaunay = Delaunay.from(dataTooltip, d => x(d.date), d => y(d.value)) */
 
+
+
+	///////////////
 	const mouseMove = (m) => {
+        const mX = (m.offsetX) ? m.offsetX : m.clientX;
+        const mY = (m.offsetY) ? m.offsetY : m.clientY;
+        const _data = [...dataGrouped];
+        const Ydomain = y.domain(); 
+        const Yrange = y.range();
+		console.log(Ydomain)
+        const rangePoints = range(Yrange[0], Yrange[1], y.step())
+        const indexTerm = Ydomain[bisect(rangePoints, mY)];
+        const i = _data.findIndex(d => d[0]=== indexTerm);
+        const indexDate = x.invert(mX);
+        const j = bisector(d => d.date).center(_data[i][1], indexDate);
+        // console.log("i:"+i);
+        // console.log("index:"+indexDate);
+        // console.log("j:"+j);
+        // console.log("index:"+indexTerm);
+        datum = _data[i][1][j]
+		var tipItems = [datum.term, formatMonthYear(datum.date),[`Index: `+datum.value]].join("<br/>");
+		console.log(tipItems)
+        tip = (datum !== undefined)
+            ? tipItems
+            :``
+
+        tooltipOptions = {x: mX,y: mY, tip: tip, visible: 1}
+    }
+	///////////////
+	/* const mouseMove = (m) => {
 		const mX = (m.offsetX) ? m.offsetX : m.clientX;
 		const mY = (m.offsetY) ? m.offsetY : m.clientY;
-		const mZ = (m.offsetY) ? m.offsetY : m.clientY;
-		const _data = [...data];
+		console.log(m.offsetX)
+		const _data = [...dataGrouped];
 		_data.sort((a,b) => a[key.x] - b[[key.x]]);
 		const index = x.invert(mX);
 		const i = bisector(d => d[key.x]).center(_data, index);
@@ -80,11 +115,11 @@
 			?[datum.date,datum.value,datum.term]
 			:``;
 		tooltipOptions = {x: mX,y: mY, tip: tip, visible: 1}
-	}
+	} */
 
 	const leave = (m) => {
-		datum = null;
-    }
+		tooltipOptions = {x: -1000, y: -1000, tip: '', visible: false}
+	}
 
 
    $: hilite = (key) => {
@@ -97,7 +132,7 @@
 <div class='graphic-tall {layout}' bind:clientWidth={width} height={height}>
 {#if width}
 <svg xmlns:svg='https://www.w3.org/2000/svg' 
-	viewBox='0 0 {width - margin.left} {height}'
+	viewBox='0 0 {width-margin.left} {height}'
 	{width}
 	{height}
 	role='img'
@@ -112,16 +147,16 @@
 	<g>
         {#each dataGrouped as d}
 		<text 
-			transform='translate({margin.left}, {y(d[0])})'
+			transform='translate({margin.left-10}, {y(d[0])})'
 			text-anchor='end'
-			style="font-size:13px"
+			style="font-size:12px"
 		>{d[0]}</text>
 		<path 
 			d={filledPath(d[1])}
 			stroke='none'
             fill={colorScale(d[1][0]['category'])}
 			opacity={hilite(d[0])}
-			transform='translate(10, {y(d[0])})'
+			transform='translate(1, {y(d[0])})'
         />
 		<path 
 			d={path(d[1])}
@@ -129,7 +164,7 @@
 			stroke-width='1.5'
             fill='none'
 			opacity={hilite(d[0].key)}
-			transform='translate(10, {y(d[0])})'
+			transform='translate(1, {y(d[0])})'
         />
         {/each}
 

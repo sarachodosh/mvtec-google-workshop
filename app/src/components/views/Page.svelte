@@ -23,8 +23,8 @@
   	const colors = ['#ec4977', '#ff9063', '#ffd577', '#baf29d', '#00dcd5', '#0cb4f5'];
     const loc = new locale('es');
     const format = {
-		  x: loc.formatTime('%b %e'),
-      y: loc.format(',.1d'),
+		  x: loc.formatTime('%Y'),
+      y: loc.format(',.365d'),
     }
 
 

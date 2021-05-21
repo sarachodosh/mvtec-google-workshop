@@ -34,7 +34,7 @@
 
 	const loc = new locale('es');
 	const format = {
-		x: loc.formatTime('%b %e'),
+		x: loc.formatTime('%b %y'),
         y: loc.format(',.1d'),
     }
 
