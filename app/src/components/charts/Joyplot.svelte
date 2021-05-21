@@ -61,16 +61,16 @@
     /* $: delaunay = Delaunay.from(dataTooltip, d => x(d.date), d => y(d.value)) */
 	///////////////
 	const mouseMove = (m) => {
-        const mX = (m.offsetX) ? m.offsetX : m.clientX;
+        const mX = (m.offsetX) ? m.offsetX-60 : m.clientX;
         const mY = (m.offsetY) ? m.offsetY : m.clientY;
         const _data = [...dataGrouped];
         const Ydomain = y.domain(); 
         const Yrange = y.range();
-		console.log(Ydomain)
+        console.log(Ydomain)
         const rangePoints = range(Yrange[0], Yrange[1], y.step())
         const indexTerm = Ydomain[bisect(rangePoints, mY)];
         const i = _data.findIndex(d => d[0]=== indexTerm);
-        const indexDate = x.invert(mX);
+        const indexDate = x.invert(mX+60);
         const j = bisector(d => d.date).center(_data[i][1], indexDate);
         // console.log("i:"+i);
         // console.log("index:"+indexDate);

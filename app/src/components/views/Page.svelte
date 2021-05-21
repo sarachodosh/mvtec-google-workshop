@@ -72,7 +72,7 @@
 
     <div class="typewriter">
       <p>
-        How we ask Google for <span style="color:#ED715D">help?</span>
+        How we ask Google for <span style="color:#ED715D">help</span>
       </p>
     </div>
 
