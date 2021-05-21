@@ -68,30 +68,22 @@
 </div>
 
 <!-- CONTENT -->
-<!-- <div class="contentWrapper">
-  <p class="lead">
-    Asking for help is one of the hardest things to do. But asking Google is
-    easy.
-  </p>
-</div> -->
-
 <!-- PARALLAX SLIDES -->
 
 <Parallax
   sections="2"
   style="background-color: 
   background: rgb(197,202,233);
-background: linear-gradient(180deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 70%);"
+background: linear-gradient(0deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 50%, rgba(197,202,233,1) 100%);
+"
   bind:this={parallax}
 >
   <ParallaxLayer
     offset="1"
     rate="1"
-    style="background-color: 
-  background: rgb(197,202,233);
-background: linear-gradient(0deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 100%);"
+    
   />
-  <ParallaxLayer offset="2" rate="1" style="background-color: #C5CAE9;" />
+  <!-- <ParallaxLayer offset="2" rate="1" style="background-color: #C5CAE9;" /> -->
 
   <ParallaxLayer
     offset="0"
@@ -285,26 +277,27 @@ background: linear-gradient(0deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 100%)
   :global(body) {
     padding: 0;
   }
-  .server,
-  .bash,
-  .clients-main {
+  /* SOME NON UNUSED CSS SELECTORS  */
+  /* .server, */
+  /* .bash, */
+  /* .clients-main {
     cursor: pointer;
-  }
+  } */
   img:focus {
     outline: 1px dotted gray;
   }
   img:focus:not(:focus-visible) {
     outline: none;
   }
-  .server:focus-visible {
+  /* .server:focus-visible {
     outline: 2px dotted gray;
-  }
-  .bash:focus-visible {
+  } */
+  /* .bash:focus-visible {
     outline: 2px dotted purple;
-  }
-  .clients-main:focus-visible {
+  } */
+  /* .clients-main:focus-visible {
     outline: 2px dotted blue;
-  }
+  } */
 
   #preload {
     display: none;
@@ -360,7 +353,7 @@ background: linear-gradient(0deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 100%)
     max-width: 800px;
     /* border-top: 5px solid #002869; */
     margin: auto;
-    /* margin-top: 64px; */
+    margin-top: 64px;
     padding: 48px;
     background-color: #ffffff;
     box-shadow: 0px 8px 0px #002869;

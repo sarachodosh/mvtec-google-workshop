@@ -4,15 +4,15 @@
 
 <div class="navbar">
     <!-- <menu> -->
-        
+
     <button
-    
         class="icon"
-        on:click={() => window.open()}
+        on:click={() => window.open("https://github.com/sarachodosh/mvtec-google-workshop")}
         target="_blank"
         role="link"
         rel="noopener"
-        aria-label="Find this repo on GitHub (Opens in a new tab)">
+        aria-label="Find this repo on GitHub (Opens in a new tab)"
+    >
         <svg
             role="img"
             aria-roledescription="logo"
@@ -28,7 +28,7 @@
     </button>
     <div class="navbarTitle">The blues of a pandemic</div>
     <Tweet tweet="Check this " url="https://www.google.com/" />
-    
+
     <!-- </menu> -->
 </div>
 
