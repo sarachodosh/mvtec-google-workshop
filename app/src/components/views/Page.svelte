@@ -5,6 +5,9 @@
     import Joyplot from '../charts/Joyplot.svelte';
     import CirclePacking from '../charts/CirclePacking.svelte';
     import Beeswarm from '../charts/Beeswarm.svelte';
+    import { MaterialApp, ButtonGroup, ButtonGroupItem } from 'svelte-materialify';
+    
+
 
     import dataA from '../../data/dataA_long.csv';
 	  import dataB from '../../data/dataB_long.csv';
@@ -14,7 +17,7 @@
 
   // for the beeswarm
       // For beeswarm
-	  const xKey = 'dateNum'; // NEED TO CHANGE THIS TO dateNum!
+	  const xKey = 'dateNum'; 
     const zKey = 'category';
     const rKey = 'value';
   	const colors = ['#ec4977', '#ff9063', '#ffd577', '#baf29d', '#00dcd5', '#0cb4f5'];
@@ -36,6 +39,20 @@
       wrap ? ")" : ""
     }`;
 
+  // for buttons
+  let buttonVals = [0, 1, 2, 3, 4, 5];
+  let beeColors = colors;
+  const cats = ["mental health", "location", "climate", "social problem", "health", "natural disaster"];
+
+  function changeColors() {
+    beeColors = ['#bdbdbd', '#bdbdbd', '#bdbdbd', '#bdbdbd', '#bdbdbd', '#bdbdbd'];
+
+    buttonVals.forEach(e => {
+      beeColors[e] = colors[e];
+    })
+
+    return beeColors;
+  }
 
 </script>
 
@@ -256,15 +273,30 @@ background: linear-gradient(0deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 100%)
   }
 />
 </div>
-<Beeswarm 
-    data={dataA}
-    xKey={xKey}
-    rKey={rKey}
-    rThreshold={1}
-    zKey={zKey}
-    strokeWidth={0}
-    colors={colors}
+
+<div class='wide-graph'>
+  <div class="text-center">
+    <ButtonGroup multiple activeClass='primary-color' bind:value={buttonVals}>
+      <ButtonGroupItem on:click={changeColors}>Mental Health</ButtonGroupItem>
+      <ButtonGroupItem on:click={changeColors}>Location</ButtonGroupItem>
+      <ButtonGroupItem on:click={changeColors}>Climate</ButtonGroupItem>
+      <ButtonGroupItem on:click={changeColors}>Social Issue</ButtonGroupItem>
+      <ButtonGroupItem on:click={changeColors}>Health</ButtonGroupItem>
+      <ButtonGroupItem on:click={changeColors}>Natural Disaster</ButtonGroupItem>
+    </ButtonGroup>
+  </div>
+
+  <Beeswarm 
+      data={dataA}
+      xKey={xKey}
+      rKey={rKey}
+      rThreshold={1}
+      zKey={zKey}
+      strokeWidth={0}
+      colors={beeColors}
 />
+</div>
+
 <!-- CHART 3 -->
 <div class="contentWrapper">
   <div class="sectionsComp">
@@ -318,6 +350,10 @@ background: linear-gradient(0deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 100%)
     display: none;
   }
 
+  .color1 {
+    background-color: '#000'
+  }
+
   .hero {
     margin: auto;
     position: static;
@@ -362,6 +398,13 @@ background: linear-gradient(0deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 100%)
   p {
     margin-top: 24px;
     margin-bottom: 24px;
+  }
+
+  .wide-graph {
+    padding-top: 48px;
+    padding-bottom: 48px;
+    max-width: 1300px;
+    margin: auto;
   }
 
   .contentWrapper {
@@ -417,6 +460,7 @@ background: linear-gradient(0deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 100%)
     display: flex;
     padding: 0px 0px 24px 0px;
   }
+
   h2 {
     /* margin: 32px 0px 0px 0px; */
     line-height: 48px;
