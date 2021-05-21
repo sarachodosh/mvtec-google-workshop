@@ -8,7 +8,7 @@
   export let date;
 	
 	$: nTicks = (position === 'bottom' || position === 'top' ) 
-		? width / 50
+		? width / 100
     : height / 50;
 
   $: transform = position === 'bottom'

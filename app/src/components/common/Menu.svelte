@@ -27,7 +27,7 @@
         >
     </button>
     <div class="navbarTitle">The blues of a pandemic</div>
-    <Tweet tweet="Check this " url="https://www.google.com/" />
+    <Tweet tweet="Check this " url="https://how-to-help.vercel.app/" />
     
     <!-- </menu> -->
 </div>

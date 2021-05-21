@@ -218,11 +218,11 @@ background: linear-gradient(0deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 50%, 
 <!-- CHART 1 -->
 <div class='contentWrapper'>
   <div class='sectionsComp'>
-    <p>
+    <h2>
       This is what we've been searching for help with. 
-    </p>
+    </h2>
     <p>
-      Each bubble represents one month's worth of searches for “how to help _____” or “how to help someone with _____”.
+      Each bubble represents one month's worth of searches for “how to help _____” or “how to help someone with _____.”
       Click on the buttons to filter out each category and see how each topic contributes to the full picture of searches.
     </p>
   </div>
