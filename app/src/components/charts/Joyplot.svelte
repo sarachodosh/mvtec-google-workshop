@@ -147,7 +147,7 @@
 	<g>
         {#each dataGrouped as d}
 		<text 
-			transform='translate({margin.left-10}, {y(d[0])})'
+			transform='translate({margin.left}, {y(d[0])})'
 			text-anchor='end'
 			style="font-size:12px"
 		>{d[0]}</text>
@@ -156,7 +156,7 @@
 			stroke='none'
             fill={colorScale(d[1][0]['category'])}
 			opacity={hilite(d[0])}
-			transform='translate(1, {y(d[0])})'
+			transform='translate(5, {y(d[0])})'
         />
 		<path 
 			d={path(d[1])}
@@ -164,7 +164,7 @@
 			stroke-width='1.5'
             fill='none'
 			opacity={hilite(d[0].key)}
-			transform='translate(1, {y(d[0])})'
+			transform='translate(5, {y(d[0])})'
         />
         {/each}
 
