@@ -6,13 +6,11 @@
     import CirclePacking from '../charts/CirclePacking.svelte';
     import Beeswarm from '../charts/Beeswarm.svelte';
 
-    import { format, precisionFixed } from 'd3-format';
-
     import dataA from '../../data/dataA_long.csv';
 	  import dataB from '../../data/dataB_long.csv';
     import dataG from '../../data/dataG.csv';
     import { curveCatmullRom } from 'd3-shape';
-
+    import locale from '@reuters-graphics/d3-locale';
 
   // for the beeswarm
       // For beeswarm
@@ -20,7 +18,11 @@
     const zKey = 'category';
     const rKey = 'value';
   	const colors = ['#ec4977', '#ff9063', '#ffd577', '#baf29d', '#00dcd5', '#0cb4f5'];
-
+    const loc = new locale('es');
+    const format = {
+		  x: loc.formatTime('%b %e'),
+      y: loc.format(',.1d'),
+    }
 
 
   // for parallax
@@ -239,11 +241,17 @@ background: linear-gradient(0deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 100%)
   </p>
   <Joyplot
   data={dataB}
+  
   options={
       {
-    curve: curveCatmullRom,
-          layout: 'col',
-          format: format
+        key:{x: 'date', y: 'value', z:'term'},
+        format: format,
+				layout: 'col',
+				title:'Title',
+				
+        curve: curveCatmullRom,
+              layout: 'col',
+              format: format
       }
   }
 />

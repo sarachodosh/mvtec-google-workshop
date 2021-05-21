@@ -1,27 +1,28 @@
 <script>
 	import Axis from '../common/Axis.svelte';
 	import PointInteractive from '../common/PointInteractive.svelte';
+	import Tooltip from '../common/Tooltip.svelte';
 	import {line, area} from 'd3-shape';
     import {scaleTime, scaleLinear, scalePoint, scaleOrdinal} from 'd3-scale';
-    import {max, extent, groups} from 'd3-array'
+    import {max, extent, groups, bisector} from 'd3-array'
     import { Delaunay } from 'd3-delaunay'
     
     export let data;
-	export let margin = {top: 50, right: 5, bottom: 20, left: 200};
+	export let margin = {top: 50, right: 5, bottom: 20, left: 100};
 	export let options;
-	let { curve, layout, format } = options;
+	let { key, curve, layout, format } = options;
 
-	let datum, width; //height went here
-
+	let datum, width, tip,tooltipOptions; //height went here
 
 	data.forEach(date => date.date = new Date(date.month));
     data.forEach(value => value.value = +value.value);
     
-	// console.log(data)
-
+	
+	
 	const dataGrouped = groups(data, d => d.term);
-
+	
 	// adding index for spacing joy plot
+
 	for (let i=0; i<dataGrouped.length; ++i) {
 		dataGrouped[i].push(i);
 	}
@@ -64,39 +65,44 @@
 		.y1(d => z(d.value))
 		.curve(curve)
 
-    $: delaunay = Delaunay.from(data, d => x(d.date), d => y(d.value))
+    /* $: delaunay = Delaunay.from(dataTooltip, d => x(d.date), d => y(d.value)) */
 
 	const mouseMove = (m) => {
 		const mX = (m.offsetX) ? m.offsetX : m.clientX;
+		const mY = (m.offsetY) ? m.offsetY : m.clientY;
+		const mZ = (m.offsetY) ? m.offsetY : m.clientY;
 		const _data = [...data];
-		_data.sort((a,b) => a[x] - b[[x]]);
+		_data.sort((a,b) => a[key.x] - b[[key.x]]);
 		const index = x.invert(mX);
 		const i = bisector(d => d[key.x]).center(_data, index);
 		datum = _data[i];
-	}; console.log();
+		tip = (datum !== undefined)
+			?[datum.date,datum.value,datum.term]
+			:``;
+		tooltipOptions = {x: mX,y: mY, tip: tip, visible: 1}
+	}
 
 	const leave = (m) => {
 		datum = null;
     }
-    
-    $: hilite = (key) => {
-        if(datum) return (datum.key === key) ? 1 : .3 ;
-        else return 1;
-    }
 
-	
+
+   $: hilite = (key) => {
+        if(datum) return (datum.term === key) ? 1 : .5 ;
+        else return 0.5;
+    } 
 
 </script> 
 
 <div class='graphic-tall {layout}' bind:clientWidth={width} height={height}>
 {#if width}
 <svg xmlns:svg='https://www.w3.org/2000/svg' 
-	viewBox='0 0 {width} {height}'
+	viewBox='0 0 {width - margin.left} {height}'
 	{width}
 	{height}
 	role='img'
     aria-labelledby='p'
-    on:touchmove|preventDefault
+	on:touchmove|preventDefault
 	on:pointermove|preventDefault={mouseMove}
 	on:mouseleave={leave}
 	on:touchend={leave}
@@ -106,14 +112,15 @@
 	<g>
         {#each dataGrouped as d}
 		<text 
-			transform='translate(200, {y(d[0])})'
+			transform='translate({margin.left}, {y(d[0])})'
 			text-anchor='end'
+			style="font-size:13px"
 		>{d[0]}</text>
 		<path 
 			d={filledPath(d[1])}
 			stroke='none'
             fill={colorScale(d[1][0]['category'])}
-            opacity='0.5'
+			opacity={hilite(d[0])}
 			transform='translate(10, {y(d[0])})'
         />
 		<path 
@@ -121,7 +128,7 @@
 			stroke={colorScale(d[1][0]['category'])}
 			stroke-width='1.5'
             fill='none'
-            opacity='1'
+			opacity={hilite(d[0].key)}
 			transform='translate(10, {y(d[0])})'
         />
         {/each}
@@ -132,11 +139,12 @@
 	<!-- <Axis {width} {height} {margin} scale={y} position='left'/> -->
 	<!-- <Axis {width} {height} {margin} scale={x} position='bottom' format={format.x} /> -->
 
-	<PointInteractive {datum} {format} {x} {y} key={{x:'x', y:'y'}} color='navy' {width} />
+
 	
 	<!-- transform='translate({d[2]*100}, 0)' -->
 
 </svg>
+<Tooltip {... tooltipOptions} {width} {height} />
 {/if}
 </div>
 

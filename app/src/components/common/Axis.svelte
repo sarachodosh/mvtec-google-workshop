@@ -5,7 +5,7 @@
   export let scale;
   export let position;
   export let format;
-  export let time;
+  export let date;
 	
 	$: nTicks = (position === 'bottom' || position === 'top' ) 
 		? width / 50
@@ -19,7 +19,7 @@
     ? `translate(${margin.left}, 0)`
     : `translate(0, ${margin.right})`
 
-  $: ticks = scale.ticks((!time)? nTicks : time)
+  $: ticks = scale.ticks((!date)? nTicks : date)
     .map(d => ({value: format(d), offset: scale(d)}));
     
   $: anchor = (x) => {
