@@ -26,7 +26,7 @@
             <Col cols={12} sm={12} md={4}>
                 <h4>Made by</h4>
                 <p><slot name='team'></slot></p>
-                <p><b>Google News Lab:</b> <a href='https://simonrogers.net/'>Simon Rogers</a> and <a href='http://albertocairo.com/'>Alberto Cairo</a></p>
+                <p><b>Google News Lab:</b> <a href='https://twitter.com/beckypinners'>Becky Pinnington</a>, <a href='https://simonrogers.net/'>Simon Rogers</a> and <a href='http://albertocairo.com/'>Alberto Cairo</a></p>
                 <p><b>MVTEC mentors: </b> Anton Bardera, Artur Galocha</p>
             </Col>
         </Row>
