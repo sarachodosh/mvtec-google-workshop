@@ -1,37 +1,28 @@
 <!-- scripts and imports -->
 <script>
   import { Parallax, ParallaxLayer } from "svelte-parallax";
-
     import Joyplot from '../charts/Joyplot.svelte';
     import CirclePacking from '../charts/CirclePacking.svelte';
     import Beeswarm from '../charts/Beeswarm.svelte';
-    import { MaterialApp, ButtonGroup, ButtonGroupItem } from 'svelte-materialify';
-    
-
-
+    // import { format, precisionFixed } from 'd3-format';
     import dataA from '../../data/dataA_long.csv';
 	  import dataB from '../../data/dataB_long.csv';
     import dataG from '../../data/dataG.csv';
     import { curveCatmullRom } from 'd3-shape';
+    import { MaterialApp, ButtonGroup, ButtonGroupItem } from 'svelte-materialify';
     import locale from '@reuters-graphics/d3-locale';
 
   // for the beeswarm
       // For beeswarm
-	  const xKey = 'dateNum'; 
+	  const xKey = 'dateNum'; // NEED TO CHANGE THIS TO dateNum!
     const zKey = 'category';
     const rKey = 'value';
-  	const colors = ['#ec4977', '#ff9063', '#ffd577', '#baf29d', '#00dcd5', '#0cb4f5'];
-    const loc = new locale('es');
-    const format = {
-		  x: loc.formatTime('%Y'),
-      y: loc.format(',.365d'),
-    }
-
-
+  	// const colors = ['#ec4977', '#ff9063', '#ffd577', '#baf29d', '#00dcd5', '#0cb4f5']; //old
+    const colors = ["#002869", "#873378", "#d55369", "#f58054", "#fba245", "#f3c73e"];
+    
   // for parallax
   let parallax;
   let disabled = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
   const url = (name, wrap = false) =>
     `${
       wrap ? "url(" : ""
@@ -53,6 +44,13 @@
 
     return beeColors;
   }
+
+  // for joyplot
+  const loc = new locale('es');
+  const format = {
+		  x: loc.formatTime('%Y'),
+      y: loc.format(',.1d'),
+    }
 
 </script>
 
@@ -87,30 +85,22 @@
 </div>
 
 <!-- CONTENT -->
-<!-- <div class="contentWrapper">
-  <p class="lead">
-    Asking for help is one of the hardest things to do. But asking Google is
-    easy.
-  </p>
-</div> -->
-
 <!-- PARALLAX SLIDES -->
 
 <Parallax
   sections="2"
   style="background-color: 
   background: rgb(197,202,233);
-background: linear-gradient(180deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 70%);"
+background: linear-gradient(0deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 50%, rgba(197,202,233,1) 100%);
+"
   bind:this={parallax}
 >
   <ParallaxLayer
     offset="1"
     rate="1"
-    style="background-color: 
-  background: rgb(197,202,233);
-background: linear-gradient(0deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 100%);"
+    
   />
-  <ParallaxLayer offset="2" rate="1" style="background-color: #C5CAE9;" />
+  <!-- <ParallaxLayer offset="2" rate="1" style="background-color: #C5CAE9;" /> -->
 
   <ParallaxLayer
     offset="0"
@@ -226,52 +216,16 @@ background: linear-gradient(0deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 100%)
 </Parallax>
 
 <!-- CHART 1 -->
-<div class="contentWrapper">
-  <div class="sectionsComp">
-    <h2>Mental health issues dominate searches</h2>
+<div class='contentWrapper'>
+  <div class='sectionsComp'>
+    <p>
+      This is what we've been searching for help with. 
+    </p>
+    <p>
+      Each bubble represents one month's worth of searches for “how to help _____” or “how to help someone with _____”.
+      Click on the buttons to filter out each category and see how each topic contributes to the full picture of searches.
+    </p>
   </div>
-  <p>
-    Searches for “how to help _____” or “how to help someone with _____” are
-    consistently dominated by mental health issues.
-  </p>
-  <CirclePacking 
-    data={dataG}
-  />
-</div>
-
-<!-- CHART 2 -->
-<div class="contentWrapper">
-  <div class="sectionsComp">
-    <h2>Sudden tragedies draw our attention, but not for long</h2>
-  </div>
-  <p>
-    There are blips where natural disasters strike—a flood, a hurricane—or
-    during political upheaval and other crises. But these abstract tragedies
-    don’t capture our attention for long. Their peaks rise and fall again
-    quickly. Meanwhile, interest in the everyday tragedies that strike us and
-    our loved ones, from depression to anorexia, stays fairly high.
-  </p>
-  <p>
-    Interest in some of these has risen sharply in the last year—rape, anger
-    management, and anxiety, to name a few. Others have seen a steady rise.
-    Perhaps no topic has been of as much interest, though, as depression.
-  </p>
-  <Joyplot
-  data={dataB}
-  
-  options={
-      {
-        key:{x: 'date', y: 'value', z:'term'},
-        format: format,
-				layout: 'col',
-				title:'Title',
-				
-        curve: curveCatmullRom,
-              layout: 'col',
-              format: format
-      }
-  }
-/>
 </div>
 
 <div class='wide-graph'>
@@ -294,11 +248,91 @@ background: linear-gradient(0deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 100%)
       zKey={zKey}
       strokeWidth={0}
       colors={beeColors}
-/>
+  />
 </div>
 
-<!-- CHART 3 -->
+<div class='contentWrapper'>
+  <div class='sectionsComp'>
+    <p>
+      The vast majority of searches are for mental health related terms, while a minority are for helping with sudden tragedies. 
+      Searches for locations are generally because something happened—a flood struck a city, or a fire wiped out a region. 
+    </p>
+    <p>
+      But most of our private concerns—the ones we ask Google in secret—are about psychological challenges. Whether it's for ourselves
+      or for loved ones, the bulk of our searches are about things like depression, addiction, and panic attacks. 
+    </p>
+  </div>
+  
+  <CirclePacking 
+    data={dataG}
+  />
+
+  <div class='sectionsComp'>
+    <p>
+      Since 2015, social problems like homelessness and refugee crises have harnessed just as much search interest as Hurricane Harvey
+      hitting Texas and the civil war in Syria. 
+    </p>
+  </div>  
+</div>
+
+
+<!-- CHART 2 -->
 <div class="contentWrapper">
+  <div class="sectionsComp">
+    <h2>But these events don't capture our attention for long.</h2>
+  </div>
+  <p>
+    The peaks of interest in far-off tragedies rise and fall again
+    quickly. Meanwhile, interest in the everyday problems that strike us and
+    our loved ones, from depression to anorexia, stays fairly high.
+  </p>
+  
+  <Joyplot
+  data={dataB}
+  
+  options={
+      {
+        key:{x: 'date', y: 'value', z:'term'},
+        format: format,
+				layout: 'col',
+				title:'Title',
+				
+        curve: curveCatmullRom,
+              layout: 'col',
+              format: format
+      }
+  }
+/>
+
+  <p>
+    Interest in some of these has risen sharply in the last year—rape, anger
+    management, and anxiety, to name a few. Others have seen a steady rise.
+    Perhaps no topic has been of as much interest, though, as depression.
+  </p>
+  
+</div>
+
+<div class="contentWrapper">
+  <div class="sectionsComp">
+    <h2>Depression is consistently one of our top concerns</h2>
+  </div>
+  <p>
+    A wave of media coverage has pushed mental health issues into the spotlight this year, but the folks at Google Trends know
+    we've been privately searching for them all along. Depression takes the top spot consistently—only the coronavirus overtook depression
+    in terms of search volume, and it only did so for a couple of months.
+  </p>
+ 
+  <img src="img/heatMapA.png" alt="heatMapA" width="100%" height="auto" />
+
+  <p>
+    Until now, our cries for and offers of help have largely stayed between us and Google. But if the pandemic has taught us anything, it should
+    be that we need to lean on each other—we've all been searching for the same things all along.
+  </p>
+</div>
+
+
+<!-- CHART 3 -->
+<!-- <div class="contentWrapper">
   <div class="sectionsComp">
     <h2>Depression is consistently one of our top concerns</h2>
   </div>
@@ -318,40 +352,43 @@ background: linear-gradient(0deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 100%)
   </p>
   <img src="img/heatMapB.png" alt="heatMapB" width="100%" height="auto" />
   <p />
-</div>
+</div> -->
 
 <!-- CSS & STYLES -->
 <style>
   :global(body) {
     padding: 0;
   }
-  .server,
-  .bash,
-  .clients-main {
+  /* SOME NON UNUSED CSS SELECTORS  */
+  /* .server, */
+  /* .bash, */
+  /* .clients-main {
     cursor: pointer;
-  }
+  } */
   img:focus {
     outline: 1px dotted gray;
   }
   img:focus:not(:focus-visible) {
     outline: none;
   }
-  .server:focus-visible {
+  /* .server:focus-visible {
     outline: 2px dotted gray;
-  }
-  .bash:focus-visible {
+  } */
+  /* .bash:focus-visible {
     outline: 2px dotted purple;
-  }
-  .clients-main:focus-visible {
+  } */
+  /* .clients-main:focus-visible {
     outline: 2px dotted blue;
-  }
-
+  } */
   #preload {
     display: none;
   }
 
-  .color1 {
-    background-color: '#000'
+  .wide-graph {
+    padding-top: 48px;
+    padding-bottom: 48px;
+    max-width: 1300px;
+    margin: auto;
   }
 
   .hero {
@@ -364,7 +401,6 @@ background: linear-gradient(0deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 100%)
     background-position: center -40px;
     background-image: url("https://github.com/sarachodosh/mvtec-google-workshop/raw/santiago/app/public/img/heroBackground.svg");
   }
-
   .heroText {
     max-width: 880px;
     padding-top: 120px;
@@ -375,7 +411,6 @@ background: linear-gradient(0deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 100%)
     top: 57px;
     overflow-x: scroll;
   }
-
   p.author {
     font-size: 18px;
     line-height: 24px;
@@ -385,7 +420,6 @@ background: linear-gradient(0deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 100%)
     padding-top: 30px;
     text-align: center;
   }
-
   p.date {
     font-size: 16px;
     line-height: 24px;
@@ -394,29 +428,19 @@ background: linear-gradient(0deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 100%)
     margin: auto;
     text-align: center;
   }
-
   p {
     margin-top: 24px;
     margin-bottom: 24px;
   }
-
-  .wide-graph {
-    padding-top: 48px;
-    padding-bottom: 48px;
-    max-width: 1300px;
-    margin: auto;
-  }
-
   .contentWrapper {
     max-width: 800px;
     /* border-top: 5px solid #002869; */
     margin: auto;
-    /* margin-top: 64px; */
+    margin-top: 64px;
     padding: 48px;
     background-color: #ffffff;
     box-shadow: 0px 8px 0px #002869;
   }
-
   .textBox {
     max-width: 800px;
     margin: auto;
@@ -424,7 +448,6 @@ background: linear-gradient(0deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 100%)
     background-color: #ffffff;
     box-shadow: 0px 8px 0px #002869;
   }
-
   .subtitle {
     font-size: 16px;
     font-weight: 600;
@@ -432,7 +455,6 @@ background: linear-gradient(0deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 100%)
     margin-top: 32px;
     margin-bottom: 8px;
   }
-
   .pTextBox {
     font-family: "Nunito", sans-serif;
     font-style: normal;
@@ -442,7 +464,6 @@ background: linear-gradient(0deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 100%)
     margin-top: 0px;
     margin-bottom: 0px;
   }
-
   /*   .lead {
     font-family: "Nunito", sans-serif;
     font-style: normal;
@@ -460,7 +481,6 @@ background: linear-gradient(0deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 100%)
     display: flex;
     padding: 0px 0px 24px 0px;
   }
-
   h2 {
     /* margin: 32px 0px 0px 0px; */
     line-height: 48px;
@@ -470,7 +490,6 @@ background: linear-gradient(0deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 100%)
     /* padding-top: 32px; */
     font-family: "Nunito", sans-serif;
   }
-
   /* Typing animation */
   .typewriter p {
     color: #f1f1f1;
@@ -484,7 +503,6 @@ background: linear-gradient(0deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 100%)
     letter-spacing: -0.02em; /* Adjust as needed */
     animation: typing 2.5s steps(30, end), blink-caret 0.5s step-end infinite;
   }
-
   /* The typing effect */
   @keyframes typing {
     from {
@@ -494,7 +512,6 @@ background: linear-gradient(0deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 100%)
       width: 100%;
     }
   }
-
   /* The typewriter cursor effect */
   @keyframes blink-caret {
     from,
@@ -505,7 +522,6 @@ background: linear-gradient(0deg, rgba(197,202,233,1) 0%, rgba(0,40,105,1) 100%)
       border-color: #ed715d;
     }
   }
-
   /* Medium devices (landscape tablets, 768px and up) */
   @media only screen and (min-width: 768px) {
     .hero {

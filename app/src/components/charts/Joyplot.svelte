@@ -13,9 +13,7 @@
 	export let margin = {top: 50, right: 5, bottom: 20, left: 100};
 	export let options;
 	let { key, curve, layout, format } = options;
-
 	let datum, width, tip,tooltipOptions; //height went here
-
 	data.forEach(date => date.date = new Date(date.month));
     data.forEach(value => value.value = +value.value);
     
@@ -24,27 +22,22 @@
 	const dataGrouped = groups(data, d => d.term);
 	
 	// adding index for spacing joy plot
-
 	for (let i=0; i<dataGrouped.length; ++i) {
 		dataGrouped[i].push(i);
 	}
-
 	const overlap = 0.8;
 	const spacing = 20;
-
 	var height = dataGrouped.length * spacing;
-
-	const colors = ['#ec4977', '#ff9063', '#ffd577', '#baf29d', '#00dcd5', '#0cb4f5']
+	// const colors = ['#ec4977', '#ff9063', '#ffd577', '#baf29d', '#00dcd5', '#0cb4f5'] //old
+	const colors = ["#002869", "#873378", "#d55369", "#f58054", "#fba245", "#f3c73e"];
 	const terms = ['mental health', 'location', 'climate', 'social problem', 'health', 'natural disaster']
 	const colorScale = scaleOrdinal()
 		.domain(terms)
 		.range(colors)
-
 	$: x = scaleTime()
 		.domain(extent(data, d => d.date))
 		.range([margin.left, width - margin.right]);
 	
-
 	
 	// $: y = scaleLinear()
 	// 	.domain([0, max(data, d => d.value)])
@@ -53,28 +46,19 @@
 	$: y = scalePoint()
 		.domain(dataGrouped.map(d => d[0]))
 		.range([margin.top, height - margin.bottom - margin.top]);
-
 	$: z = scaleLinear()
 		.domain([0, max(data, d => d.value)])
 		.range([0, -overlap * y.step()])
-
 	$: path = line()
 		.x(d => x(d.date))
 		.y(d => z(d.value))
         .curve(curve);
-
 	$: filledPath = area()
 		.x(d => x(d.date))
 		.y0(0)
 		.y1(d => z(d.value))
 		.curve(curve)
-
-
-
     /* $: delaunay = Delaunay.from(dataTooltip, d => x(d.date), d => y(d.value)) */
-
-
-
 	///////////////
 	const mouseMove = (m) => {
         const mX = (m.offsetX) ? m.offsetX : m.clientX;
@@ -98,7 +82,6 @@
         tip = (datum !== undefined)
             ? tipItems
             :``
-
         tooltipOptions = {x: mX,y: mY, tip: tip, visible: 1}
     }
 	///////////////
@@ -116,17 +99,13 @@
 			:``;
 		tooltipOptions = {x: mX,y: mY, tip: tip, visible: 1}
 	} */
-
 	const leave = (m) => {
 		tooltipOptions = {x: -1000, y: -1000, tip: '', visible: false}
 	}
-
-
    $: hilite = (key) => {
         if(datum) return (datum.term === key) ? 1 : .5 ;
         else return 0.5;
     } 
-
 </script> 
 
 <div class='graphic-tall {layout}' bind:clientWidth={width} height={height}>

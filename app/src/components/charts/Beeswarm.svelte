@@ -62,6 +62,8 @@
         }
   }
 
+ 
+
 </script>
 
 <div class='graphic' bind:clientWidth={width} bind:clientHeight={height}>
