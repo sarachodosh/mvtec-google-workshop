@@ -47,7 +47,7 @@ import { detach_dev } from 'svelte/internal';
 
     $: descendants = packed.descendants();
 
-    const colors = ['#EC4977', '#FF9063', '#FFD577', '#BAF29D', '#00DCD5', '#0CB4F5']
+    const colors = ['#FA6850', '#532e75', '#873378', '#b23e74', '#d55369', '#01609A']
     const terms = ['mental health', 'location', 'climate', 'social problem', 'health', 'natural disaster']
     $: descendants.forEach(d => {
         d.depth === 0 ? d.color = 'lightgray' :
@@ -115,8 +115,8 @@ import { detach_dev } from 'svelte/internal';
                 x={d.x-15}
                 y={d.y}
                 dy={-d.r}         
-                fill={d.color}
-                style="font-size:25px ; font-weight: 900;  text-shadow: 1px 1px 1px #fff,3px 3px 14px {d.color};"
+                fill="#212121"
+                style="text-transform: uppercase; font-size:14px ; font-weight: 800;"
                 stroke-width="0px"
                 stroke="{d.color}"
                 stroke-opacity="0.5"   
