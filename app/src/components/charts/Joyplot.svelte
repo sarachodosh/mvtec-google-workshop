@@ -137,7 +137,7 @@
 
 
 	<!-- <Axis {width} {height} {margin} scale={y} position='left'/> -->
-	<!-- <Axis {width} {height} {margin} scale={x} position='bottom' format={format.x} /> -->
+	<Axis {width} {height} {margin} scale={x} position='bottom' format={format.x} />
 
 
 	
