@@ -96,6 +96,12 @@ a:hover {
 	margin-bottom: 3rem;
 }
 
+.graphic-tall {
+	height:100%;
+	margin-top:3rem;
+	margin-bottom:3rem;
+}
+
 .col, .wide {
 	margin: 0 auto;
 	width: 100%;
@@ -160,4 +166,10 @@ menu {
 	.wide {
 		width: 60rem;
 	}
+<<<<<<< HEAD
+=======
+
+	.col { width:80rem; }
+	.wide { width:60rem; }
+>>>>>>> 94d518a81bc9ffb6ee588beb84b91f478db2fbce
 }
